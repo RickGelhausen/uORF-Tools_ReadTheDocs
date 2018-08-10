@@ -14,6 +14,11 @@ Program flowchart
 The following flowchart describes the processing steps of the workflow and how they are connected. there is a variant of the workflow accepting a preprocessed uORF-annotation file, to skip the time consuming ribotish step for reruns of the workflow.
 
 .. image:: images/uORFTools.png
+    :width: 1400px
+    :align: center
+    :height: 980px
+
+More text
 
 .. toctree::
    :maxdepth: 2
