@@ -103,9 +103,9 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 
 As seen in the *samples.tsv* template:
 
-.. list-table:: test
-   :widths: auto
-   :header-rows: 1
+.. list-table:: samples.tsv
+:widths: auto
+:header-rows: 1
 
  * - method
    - condition
