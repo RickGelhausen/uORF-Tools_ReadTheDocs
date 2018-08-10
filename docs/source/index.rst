@@ -14,11 +14,24 @@ Program flowchart
 The following flowchart describes the processing steps of the workflow and how they are connected. there is a variant of the workflow accepting a preprocessed uORF-annotation file, to skip the time consuming ribotish step for reruns of the workflow.
 
 .. image:: images/uORFTools.png
-    :width: 1400px
+    :scale: 50%
     :align: center
-    :height: 980px
 
-More text
+The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
+
+**MISSING TABLE**
+
+Installation
+============
+
+We recommend to install `uORF-Tools` with all dependencies via conda. Once you have `conda <https://conda.io/docs/user-guide/install/index.html>`_ installed simply type:
+
+    conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
+    source activate uORF-Tools
+
+
+Usage
+=====
 
 .. toctree::
    :maxdepth: 2
