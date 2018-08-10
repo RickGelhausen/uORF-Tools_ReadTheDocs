@@ -103,7 +103,7 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 
 As seen in the *samples.tsv* template:
 
-.. list-table::
+.. list-table:: test
    :width: auto
    :header-rows: 1
 
