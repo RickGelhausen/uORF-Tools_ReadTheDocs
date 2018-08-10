@@ -24,7 +24,7 @@ The output is written to a directory structure that corresponds to the workflow 
 Installation
 ============
 
-We recommend to install `uORF-Tools` with all dependencies via conda. Once you have `conda <https://conda.io/docs/user-guide/install/index.html>`_ installed simply type:
+We recommend to install *uORF-Tools* with all dependencies via conda. Once you have `conda <https://conda.io/docs/user-guide/install/index.html>`_ installed simply type:
 
 .. code-block:: bash
 
@@ -35,11 +35,89 @@ We recommend to install `uORF-Tools` with all dependencies via conda. Once you h
 Usage
 =====
 
+Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `Gencode <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`SIL:KEA:2017european`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here. **TODO ADD LINK**
+
+Retrieve uORF-Tools
+===================
+
+The first step is downloading the latest version of *uORF-Tools* from Github. Open your terminal and create a new directory for your workflow and change into it.
+
+.. code-block:: bash
+
+    mkdir uORFflow; cd uORFflow;
+
+(All following commands assume that you are located in the workflow folder)
+Now download *uORF-Tools* by entering the following command:
+
+.. code-block:: bash
+
+    git clone git@github.com:anibunny12/uORF-Tools.git
+
+The *uORF-Tools* are now located in a subdirectory of your workflow.
+
+Prepare input files
+===================
+
+If the genome and the annotation file are compressed, extract them using *gunzip* or any other decompression tool.
+
+.. code-block:: bash
+
+    gunzip <genomeFile>.fa.gz
+    gunzip <annotationFile>.gtf.gz
+	
+Copy or move the genome and the annotation file into the workflow folder and name them *genome.fa* and *annotation.gtf*.
+
+.. code-block:: bash
+
+    mv <genomeFile>.fa genome.fa
+    mv <annotationFile>.gtf annotation.gtf
+
+Create a folder *fastq/* and copy your fastq files into the folder. Name the files according to a METHOD-CONDITION-SAMPLEID.fastq scheme (e.g. Total-ctrl-1.fastq)
+
+.. code-block:: bash
+
+    mkdir fastq
+    cp <fastqFile>.fastq fastq/<Method-Condition-SampleID>.fastq
+	
+Now copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder.
+
+.. code-block:: bash
+
+    cp uORF-Tools/templates/samples.tsv uORF-Tools/
+    cp uORF-Tools/templates/config.yaml uORF-Tools/
+
+Next, customize the *config.yaml*. It contains the following variables:
+
+• **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
+•	**adapter** Specify the adapter sequence to be used. If not set, \textit{Trim galore} will try to determine it automatically.
+•	**samples** The location of the samples sheet created in the previous step.
+•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+•	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+ 
+Now edit the sample sheet corresponding to your project. It contains the following variables:
+
+• **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
+• **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
+• **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
+• **fastqFile** Indicates the according fastq file for a given sample.
+
+As seen in the *samples.tsv* template:
+
+.. table::
+   ::width:: auto
+
+   ========  ===========  ===========  ================================
+    method    condition    replicate              fastqFile
+   ========  ===========  ===========  ================================
+   RIBO       A            1            fastq/FP-ctrl-1-2.fastq.gz
+   RIBO       B            1            fastq/FP-treat-1-2.fastq.gz
+   RNA        A            1            fastq/Total-ctrl-1-2.fastq.gz
+   RNA        B            1            fastq/Total-treat-1-2.fastq.gz
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-
 
 Indices and tables
 ==================
