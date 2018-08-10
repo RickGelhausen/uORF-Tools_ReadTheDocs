@@ -103,7 +103,7 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 
 As seen in the *samples.tsv* template:
 
-.. table::
+.. table:: test
    ::width:: auto
 
    ========  ===========  ===========  ================================
