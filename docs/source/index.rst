@@ -26,6 +26,7 @@ Installation
 
 We recommend to install `uORF-Tools` with all dependencies via conda. Once you have `conda <https://conda.io/docs/user-guide/install/index.html>`_ installed simply type:
 
+.. code-block:: bash
     conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
     source activate uORF-Tools
 
