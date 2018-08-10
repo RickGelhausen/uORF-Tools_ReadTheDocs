@@ -103,18 +103,31 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 
 As seen in the *samples.tsv* template:
 
-.. table:: test
-   ::width:: auto
+.. list-table::
+   :width: auto
+   :header-rows: 1
 
-   ========  ===========  ===========  ================================
-    method    condition    replicate              fastqFile
-   ========  ===========  ===========  ================================
-   RIBO       A            1            fastq/FP-ctrl-1-2.fastq.gz
-   RIBO       B            1            fastq/FP-treat-1-2.fastq.gz
-   RNA        A            1            fastq/Total-ctrl-1-2.fastq.gz
-   RNA        B            1            fastq/Total-treat-1-2.fastq.gz
-
-
+   * - method
+     - condition
+     - replicate
+     - fastqFile
+   * - RIBO
+     - A
+     - 1
+     - fastq/FP-ctrl-1-2.fastq.gz
+   * - RIBO
+     - B
+     - 1
+     - fastq/FP-treat-1-2.fastq.gz
+   * - RNA
+     - A
+     - 1
+     - fastq/Total-ctrl-1-2.fastq.gz
+   * - RNA
+     - B
+     - 1
+     - fastq/Total-treat-1-2.fastq.gz
+   
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
