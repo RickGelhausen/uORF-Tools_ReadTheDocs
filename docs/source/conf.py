@@ -41,7 +41,7 @@ release = '0.0.1'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinxcontrib.bibtex',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
