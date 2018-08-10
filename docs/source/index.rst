@@ -11,9 +11,9 @@ uORF-Tools are a workflow and a collection of tools for the analysis of **Upstre
 Program flowchart
 =================
 
-The following flowchart describes the processing steps of the workflow and how they are connected. there is a variant of the workflow accepting a preprocessed uORF-annotation file, to skip the time consuming ribotish step for reruns of the workflow. TEST
+The following flowchart describes the processing steps of the workflow and how they are connected. there is a variant of the workflow accepting a preprocessed uORF-annotation file, to skip the time consuming ribotish step for reruns of the workflow.
 
-.. image:: images/uORFTools-workflow.pdf
+.. image:: images/uORFTools.png
 
 .. toctree::
    :maxdepth: 2
