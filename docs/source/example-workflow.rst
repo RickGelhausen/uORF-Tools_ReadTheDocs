@@ -3,9 +3,6 @@
 Example Workflow
 ################
 
-Example workflow
-================
-
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number GSE66929. The retrieval of the data is described in this tutorial.
 
@@ -30,7 +27,7 @@ Before starting the workflow, we have to acquire and prepare several input files
 
 Annotation and genome files
 ***************************
-First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `Link GENCODE <https://www.gencodegenes.org/releases/current.html>´_ webpage for the human genome.
+First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>´_ webpage for the human genome.
 
 .. image:: images/GenCode_download.png
     :scale: 50%
@@ -57,7 +54,7 @@ Finally, we will rename these files to *annotation.gtf* and *genome.fa*.
     mv gencode.v28.annotation.gtf annotation.gtf
     mv GRCh38.p12.genome.fa genome.fa
 
-Another webpage that provides these files is `Link Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
+Another webpage that provides these files is `Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
 
 
 References
