@@ -17,8 +17,10 @@ The following flowchart describes the processing steps of the workflow and how t
     :scale: 50%
     :align: center
 
-The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
+Directory table
+===============
 
+The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
 **MISSING TABLE**
 
 Installation
@@ -104,8 +106,8 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 As seen in the *samples.tsv* template:
 
 .. list-table::
-   :widths: auto
-   :header-rows: 1
+   ::widths: auto
+   ::header-rows: 1
 
  * - method
    - condition
