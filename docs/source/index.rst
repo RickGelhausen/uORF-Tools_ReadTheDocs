@@ -103,7 +103,7 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 
 As seen in the *samples.tsv* template:
 
-.. list-table:: samples.tsv
+.. list-table::
    :widths: auto
    :header-rows: 1
 
@@ -128,6 +128,33 @@ As seen in the *samples.tsv* template:
    - 1
    - fastq/Total-treat-1-2.fastq.gz
    
+Executing the workflow
+======================
+
+The workflow will first retrieve all required programs and install them. Then it will derive the necessary computation step depending on your input files.
+You will receive continuous updates about the progress of the workflow execution. Log files of the individual steps will be written to the logs subdirectory and are named according to the workflow step. 
+The intermediary output of the different workflow steps are written to directories as shown in the directory table.
+
+Run the workflow locally
+************************
+Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
+of the workflow require a lot of memory, specifically for eukaryotic species. In our tests with the human genome the memory
+consumption did not exceed xxGB. **MISSING INFORMATION**
+
+.. code-block:: bash
+
+    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --latency-wait 60
+
+Run Snakemake in a cluster environment
+**************************************
+Use the following steps if you are executing the workflow via a queuing system. Edit the configuration file cluster.yaml
+according to your queuing system setup and cluster hardware. The following system call shows the usage with Grid Engine:
+
+.. code-block:: bash
+
+    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
