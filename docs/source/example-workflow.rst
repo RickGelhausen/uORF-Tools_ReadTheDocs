@@ -1,6 +1,6 @@
-.. _example-workflow:
+################
 Example Workflow
-================
+################
 
 References
 ==========
