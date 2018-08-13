@@ -3,19 +3,12 @@ uORF-Tools Documentation
 
 **UNDER CONSTRUCTION**
  
-Contents:
+**Contents:**
 
 .. toctree::
    :maxdepth: 2
 
    overview
    example-workflow
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 
