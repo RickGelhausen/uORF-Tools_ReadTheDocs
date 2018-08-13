@@ -34,7 +34,7 @@ We recommend to install *uORF-Tools* with all dependencies via conda. Once you h
 Usage
 =====
 
-Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `Gencode <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`SIL:KEA:2017european`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here: :ref:`Link example-workflow <example-workflow>`_.
+Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `Gencode <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`SIL:KEA:2017european`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here: :ref:`Link example-workflow <example-workflow>`.
 
 Retrieve uORF-Tools
 ===================
