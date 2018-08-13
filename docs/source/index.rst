@@ -21,6 +21,8 @@ Directory table
 ===============
 
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
+.. TODO ADD TABLE
+
 **MISSING TABLE**
 
 Installation
@@ -37,7 +39,7 @@ We recommend to install *uORF-Tools* with all dependencies via conda. Once you h
 Usage
 =====
 
-Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `Gencode <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`SIL:KEA:2017european`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here. **TODO ADD LINK**
+Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `Gencode <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`SIL:KEA:2017european`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here :ref:`example-workflow`.
 
 Retrieve uORF-Tools
 ===================
@@ -141,7 +143,7 @@ Run the workflow locally
 ************************
 Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
 of the workflow require a lot of memory, specifically for eukaryotic species. In our tests with the human genome the memory
-consumption did not exceed xxGB. **MISSING INFORMATION**
+consumption did not exceed xxGB. .. TODO **MISSING INFORMATION**
 
 .. code-block:: bash
 
