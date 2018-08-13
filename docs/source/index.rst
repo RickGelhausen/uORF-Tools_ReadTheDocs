@@ -161,7 +161,7 @@ according to your queuing system setup and cluster hardware. The following syste
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
+
    example-workflow
 
 Indices and tables
