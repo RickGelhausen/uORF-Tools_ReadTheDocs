@@ -158,10 +158,11 @@ according to your queuing system setup and cluster hardware. The following syste
 
     snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   example-workflow
 
 Indices and tables
 ==================
