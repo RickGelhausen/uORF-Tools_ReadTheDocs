@@ -1,6 +1,5 @@
 .. _example-workflow:
 
-
 ################
 Example Workflow
 ################
@@ -194,6 +193,72 @@ This file contains the following variables:
     uorfannotationpath: ""
 
 For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*. We let *Trim galore* determine the correct adapter sequence. The path to *samples.tsv* is correct and we precomputed nothing, therefore we leave the rest empty.
+
+Running the workflow
+====================
+
+Now that we have all the required files, we can start running the workflow, either locally or in a cluster environment.
+
+Run the workflow locally
+************************
+
+Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
+of the workflow require a lot of memory, specifically for eukaryotic species. In our tests with the human genome the memory
+consumption did not exceed xxGB. 
+.. TODO:: check this
+
+.. code-block:: bash
+
+    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --latency-wait 60
+
+Run Snakemake in a cluster environment
+**************************************
+
+Use the following steps if you are executing the workflow via a queuing system. Edit the configuration file *cluster.yaml*
+according to your queuing system setup and cluster hardware. The following system call shows the usage with Grid Engine:
+
+.. code-block:: bash
+
+    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
+
+Example: Run Snakemake in a cluster environment
+***********************************************
+
+We ran the tutorial workflow in a cluster environment, specifically a TORQUE cluster environment. 
+Therefore, we created a bash script *torque.sh* in our project folder.
+
+.. code-block::bash
+
+    vim torque.sh
+
+We proceeded by writing the queueing script:
+
+.. code-block:: bash
+
+    #!/bin/bash
+    #PBS -N <ProjectFolder>
+    #PBS -S /bin/bash
+    #PBS -q "long"
+    #PBS -d <PATH/ProjectFolder>
+    #PBS -l nodes=1:ppn=1
+    #PBS -o <PATH/ProjectFolder>
+    #PBS -j oe
+    cd <PATH/ProjectFolder>
+    source activate snakemake
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
+
+We then simply submitted this job to the cluster:
+
+.. code-block:: bash
+
+    qsub torque.sh
+
+Using any of the presented methods, this will run the workflow on our dataset and create the desired output files. Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
+
+.. code-block:: bash
+
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --report report.html
+
 
 References
 ==========
