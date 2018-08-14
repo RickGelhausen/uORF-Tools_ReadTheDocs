@@ -55,12 +55,12 @@ Finally, we will rename these files to *annotation.gtf* and *genome.fa*.
     mv gencode.v28.annotation.gtf annotation.gtf
     mv GRCh38.p12.genome.fa genome.fa
 
-Another webpage that provides these files is `Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_ :cite:`SIL:KEA:2017european`. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
+Another webpage that provides these files is `Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_ :cite:`Ensembl:2018`. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
 
 Fastq files
 ***********
 
-Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) :cite:`ENA:2011` as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
+Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) :cite:`SIL:KEA:2017european` as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
 
 Therefore, we will use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ (SRA) :cite:`SRA:2011` instead, which is hosted by NCBI.
 On the NCBI webpage, we search for the GEO accession number, here *GSE66929*.
