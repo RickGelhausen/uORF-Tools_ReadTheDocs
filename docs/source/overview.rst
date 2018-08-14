@@ -35,7 +35,6 @@ We recommend to install *uORF-Tools* with all dependencies via conda. Once you h
     conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
     source activate uORF-Tools
 
-
 Usage
 =====
 
@@ -50,7 +49,8 @@ The first step is downloading the latest version of *uORF-Tools* from Github. Op
 
     mkdir uORFflow; cd uORFflow;
 
-(All following commands assume that you are located in the workflow folder)
+.. note:: All following commands assume that you are located in the workflow folder
+
 Now download *uORF-Tools* by entering the following command:
 
 .. code-block:: bash
@@ -144,6 +144,16 @@ according to your queuing system setup and cluster hardware. The following syste
 .. code-block:: bash
 
     snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
+
+Report
+******
+
+Using any of the presented methods, this will run the workflow on our dataset and create the desired output files. Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
+
+.. code-block:: bash
+
+    snakemake --report report.html
+
 
 References
 ==========

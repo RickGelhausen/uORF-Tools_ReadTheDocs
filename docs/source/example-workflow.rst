@@ -13,7 +13,7 @@ First of all, we start by creating the project directory and changing to it.
 
 .. code-block:: bash
 
-    mkdir tutorial; cd tutorial;|
+    mkdir tutorial; cd tutorial;
 	
 We then download the *uORF-Tools* into the newly created project folder.
 
@@ -128,21 +128,21 @@ Using any text editor (vim, nano, gedit, atom, ...), we will first edit the *sam
 
 .. code-block:: bash
 
-    vim uORF-Tools/samples.tsv|
+    vim uORF-Tools/samples.tsv
 
 The template looks as follows:
 
-+-----------+-----------+-----------+--------------------------------+
-|   method  | condition | replicate | fastqFile                      |
-+===========+===========+===========+================================+
-| RIBO      |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
-+-----------+-----------+-----------+--------------------------------+
-| RIBO      |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
-+-----------+-----------+-----------+--------------------------------+
++--------+-----------+-----------+--------------------------------+
+| method | condition | replicate | fastqFile                      |
++========+===========+===========+================================+
+| RIBO   |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
++--------+-----------+-----------+--------------------------------+
+| RNA    |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
++--------+-----------+-----------+--------------------------------+
+| RNA    |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
++--------+-----------+-----------+--------------------------------+
 
 • **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
 • **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
@@ -152,17 +152,17 @@ The template looks as follows:
 
 For this tutorial, the resulting *samples.tsv* will look as follows:
 
-+-----------+-----------+-----------+--------------------------------+
-|   method  | condition | replicate | fastqFile                      |
-+===========+===========+===========+================================+
-| RIBO      |  A        | 1         | fastq/SRR1916542.fastq.gz      |
-+-----------+-----------+-----------+--------------------------------+
-| RIBO      |  B        | 1         | fastq/SRR1916548.fastq.gz      |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  A        | 1         | fastq/SRR1910466.fastq.gz      |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  B        | 1         | fastq/SRR1910470.fastq.gz      |
-+-----------+-----------+-----------+--------------------------------+
++--------+-----------+-----------+--------------------------------+
+| method | condition | replicate | fastqFile                      |
++========+===========+===========+================================+
+| RIBO   |  A        | 1         | fastq/SRR1916542.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  B        | 1         | fastq/SRR1916548.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RNA    |  A        | 1         | fastq/SRR1910466.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RNA    |  B        | 1         | fastq/SRR1910470.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
 
 .. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
 
@@ -224,7 +224,7 @@ according to your queuing system setup and cluster hardware. The following syste
 Example: Run Snakemake in a cluster environment
 ***********************************************
 
-.. warning:: Be advised that this is a specific example, the required options may change depending on your system.
+.. warning:: **Be advised that this is a specific example, the required options may change depending on your system.**
 
 We ran the tutorial workflow in a cluster environment, specifically a TORQUE cluster environment. 
 Therefore, we created a bash script *torque.sh* in our project folder.
@@ -255,7 +255,12 @@ We then simply submitted this job to the cluster:
 
     qsub torque.sh
 
-Using any of the presented methods, this will run the workflow on our dataset and create the desired output files. Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
+Using any of the presented methods, this will run the workflow on our dataset and create the desired output files.
+
+Report
+******
+
+Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
 
 .. code-block:: bash
 
