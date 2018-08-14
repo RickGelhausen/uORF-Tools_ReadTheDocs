@@ -29,7 +29,7 @@ Before starting the workflow, we have to acquire and prepare several input files
 
 Annotation and genome files
 ***************************
-First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ webpage for the human genome.
+First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` webpage for the human genome.
 
 .. image:: images/GenCode_download.png
     :scale: 50%
@@ -56,14 +56,14 @@ Finally, we will rename these files to *annotation.gtf* and *genome.fa*.
     mv gencode.v28.annotation.gtf annotation.gtf
     mv GRCh38.p12.genome.fa genome.fa
 
-Another webpage that provides these files is `Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
+Another webpage that provides these files is `Ensembl Genomes <http://www.ensembl.org/Homo_sapiens/Info/Index>`_ :cite:`SIL:KEA:2017european`. This usually requires searching their file system in order to find the wanted files. For this tutorial, we recommend to stick to GenCode instead.
 
 Fastq files
 ***********
 
-Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
+Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) :cite:`ENA:2011` as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
 
-Therefore, we will use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ (SRA) instead, which is hosted by NCBI.
+Therefore, we will use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ (SRA) :cite:`SRA:2011` instead, which is hosted by NCBI.
 On the NCBI webpage, we search for the GEO accession number, here *GSE66929*.
 
 .. image:: images/SRA_search.png
@@ -82,16 +82,16 @@ When following the link provided in the search results, we get an overview with 
     :scale: 50%
     :align: center
 
-There are many ways to download fastq files with SRA. For more information about downloading please have a look at the following guide: `*Downloading SRA data using command line utilities* <https://www.ncbi.nlm.nih.gov/books/NBK158899/>`_.
+There are many ways to download fastq files with SRA. For more information about downloading please have a look at the following guide: `Downloading SRA data using command line utilities <https://www.ncbi.nlm.nih.gov/books/NBK158899/>`_.
 
-The simplest way is most likely the usage of the `*SRA Toolkit* <https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=std>`_, as it allows direct conversion into *.fastq* files.
+The simplest way is most likely the usage of the `SRA Toolkit <https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=std>`_, as it allows direct conversion into *.fastq* files.
 The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*. By following the *GSM ID* link (Figure above) and then the *SRX ID* link, the *SRR ID* can be retrieved. 
 
 .. image:: images/SRA_ID.png
     :scale: 50%
     :align: center
 
-Using the *SRA Toolkit* and the *SRR ID*s for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files. (We strongly suggest to compress the *.fastq* files in order to save space.)
+Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files. (We strongly suggest to compress the *.fastq* files in order to save space.)
 
 .. code-block:: bash
 
@@ -107,13 +107,93 @@ Using the *SRA Toolkit* and the *SRR ID*s for our 4 samples we can use the *fast
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 	
-**Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**
+.. warning:: **Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**
 
 Now, we create a fastq folder and move all the *.fastq.gz* files into this folder.
 
 .. code-block:: bash
 
     mkdir fastq; mv *.fastq.gz fastq/;
+
+
+Configuration file and sample sheet
+***********************************
+
+Finally, we will prepare the configuration file (*config.yaml*) and the sample sheet (*samples.tsv*). We start by copying templates for both files from the *uORF-Tools/templates/* into the *uORF-Tools/* folder.
+
+.. code-block:: bash
+
+    cp uORF-Tools/templates/* uORF-Tools/
+
+Using any text editor (vim, nano, gedit, atom, ...), we will first edit the *samples.tsv*.
+
+.. code-block:: bash
+
+    vim uORF-Tools/samples.tsv|
+
+The template looks as follows:
+
++-----------+-----------+-----------+--------------------------------+
+|   method  | condition | replicate | fastqFile                      |
++===========+===========+===========+================================+
+| RIBO      |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
++-----------+-----------+-----------+--------------------------------+
+| RIBO      |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
++-----------+-----------+-----------+--------------------------------+
+| RNA       |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
++-----------+-----------+-----------+--------------------------------+
+| RNA       |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
++-----------+-----------+-----------+--------------------------------+
+
+• **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
+• **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
+• **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
+• **fastqFile** Indicates the according fastq file for a given sample.
+
+
+For this tutorial, the resulting *samples.tsv* will look as follows:
+
++-----------+-----------+-----------+--------------------------------+
+|   method  | condition | replicate | fastqFile                      |
++===========+===========+===========+================================+
+| RIBO      |  A        | 1         | fastq/SRR1916542.fastq.gz      |
++-----------+-----------+-----------+--------------------------------+
+| RIBO      |  B        | 1         | fastq/SRR1916548.fastq.gz      |
++-----------+-----------+-----------+--------------------------------+
+| RNA       |  A        | 1         | fastq/SRR1910466.fastq.gz      |
++-----------+-----------+-----------+--------------------------------+
+| RNA       |  B        | 1         | fastq/SRR1910470.fastq.gz      |
++-----------+-----------+-----------+--------------------------------+
+
+.. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
+
+.. TODO:: NAMING CONVENTION FOR FASTQ 
+
+Next, we are going to set up the *config.yaml*.
+
+.. code-block:: bash
+
+    vim uORF-Tools/config.yaml
+		
+This file contains the following variables:
+
+• **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
+•	**samples** The location of the samples sheet created in the previous step.
+•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+•	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+
+.. code-block:: bash
+
+    #Taxonomy of the samples to be processed, possible are Eukarya, Bacteria, Archea 
+    taxonomy: "Eukarya"
+    #Adapter sequence used
+    adapter: ""
+    samples: "uORF-Tools/samples.tsv"
+    genomeindexpath: ""
+    uorfannotationpath: ""
+
+For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*. We let *Trim galore* determine the correct adapter sequence. The path to *samples.tsv* is correct and we precomputed nothing, therefore we leave the rest empty.
 
 References
 ==========

@@ -91,7 +91,7 @@ Now copy the templates of the sample sheet and the configuration file into the *
 Next, customize the *config.yaml*. It contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
-•	**adapter** Specify the adapter sequence to be used. If not set, \textit{Trim galore} will try to determine it automatically.
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
 •	**samples** The location of the samples sheet created in the previous step.
 •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
