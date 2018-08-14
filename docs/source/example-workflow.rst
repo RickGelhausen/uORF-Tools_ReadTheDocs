@@ -6,7 +6,7 @@ Example Workflow
 ################
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
-The dataset is available under the GEO accession number GSE66929. The retrieval of the data is described in this tutorial.
+The dataset is available under the GEO accession number *GSE66929*. The retrieval of the data is described in this tutorial.
 
 Setup
 =====
@@ -29,7 +29,7 @@ Before starting the workflow, we have to acquire and prepare several input files
 
 Annotation and genome files
 ***************************
-First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>´_ webpage for the human genome.
+First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ webpage for the human genome.
 
 .. image:: images/GenCode_download.png
     :scale: 50%
@@ -107,7 +107,7 @@ Using the *SRA Toolkit* and the *SRR ID*s for our 4 samples we can use the *fast
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 	
-
+**Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**
 
 Now, we create a fastq folder and move all the *.fastq.gz* files into this folder.
 
