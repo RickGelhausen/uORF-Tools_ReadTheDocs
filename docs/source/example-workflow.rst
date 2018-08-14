@@ -224,10 +224,12 @@ according to your queuing system setup and cluster hardware. The following syste
 Example: Run Snakemake in a cluster environment
 ***********************************************
 
+.. warning:: Be advised that this is a specific example, the required options may change depending on your system.
+
 We ran the tutorial workflow in a cluster environment, specifically a TORQUE cluster environment. 
 Therefore, we created a bash script *torque.sh* in our project folder.
 
-.. code-block::bash
+.. code-block:: bash
 
     vim torque.sh
 

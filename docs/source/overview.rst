@@ -21,7 +21,9 @@ Directory table
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
 .. TODO ADD TABLE
 
-**MISSING TABLE**
+.. image:: images/directoryTable.png
+    :scale: 50%
+    :align: center
 
 Installation
 ============
