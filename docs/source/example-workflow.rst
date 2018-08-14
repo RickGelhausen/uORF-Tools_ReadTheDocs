@@ -61,9 +61,9 @@ Another webpage that provides these files is `Ensembl Genomes <http://www.ensemb
 Fastq files
 ***********
 
-Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the ´European Nucleotide Archive <https://www.ebi.ac.uk/ena>´_ (ENA) as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
+Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) as it provides direct download links when searching for a dataset. Unfortunately, the *GSE66929* dataset is not provided by ENA.
 
-Therefore, we will use the ´Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>´_ (SRA) instead, which is hosted by NCBI.
+Therefore, we will use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ (SRA) instead, which is hosted by NCBI.
 On the NCBI webpage, we search for the GEO accession number, here *GSE66929*.
 
 .. image:: images/SRA_search.png
@@ -82,9 +82,9 @@ When following the link provided in the search results, we get an overview with 
     :scale: 50%
     :align: center
 
-There are many ways to download fastq files with SRA. For more information about downloading please have a look at the following guide: ´*Downloading SRA data using command line utilities* <https://www.ncbi.nlm.nih.gov/books/NBK158899/>´_.
+There are many ways to download fastq files with SRA. For more information about downloading please have a look at the following guide: `*Downloading SRA data using command line utilities* <https://www.ncbi.nlm.nih.gov/books/NBK158899/>`_.
 
-The simplest way is most likely the usage of the ´*SRA Toolkit* <https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=std>´_, as it allows direct conversion into *.fastq* files.
+The simplest way is most likely the usage of the `*SRA Toolkit* <https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=std>`_, as it allows direct conversion into *.fastq* files.
 The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*. By following the *GSM ID* link (Figure above) and then the *SRX ID* link, the *SRR ID* can be retrieved. 
 
 .. image:: images/SRA_ID.png
