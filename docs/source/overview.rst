@@ -104,43 +104,18 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 • **fastqFile** Indicates the according fastq file for a given sample.
 
 As seen in the *samples.tsv* template:
-
-.. list-table::
-   ::widths: auto
-   ::header-rows: 1
-
- * - method
-   - condition
-   - replicate
-   - fastqFile
- * - RIBO
-   - A
-   - 1
-   - fastq/FP-ctrl-1-2.fastq.gz
- * - RIBO
-   - B
-   - 1
-   - fastq/FP-treat-1-2.fastq.gz
- * - RNA
-   - A
-   - 1
-   - fastq/Total-ctrl-1-2.fastq.gz
- * - RNA
-   - B
-   - 1
-   - fastq/Total-treat-1-2.fastq.gz
   
-+-------------+-----------+
-|   method    | condition |
-+=============+===========+
-|    RIBO     |  A        |
-+-------------+-----------+
-|    RIBO     |  B        |
-+-------------+-----------+
-|    RNA      |  A        |
-+-------------+-----------+
-|    RNA      |  B        |
-+-------------+-----------+
++-------------+-----------+-----------+--------------------------------+
+|   method    | condition | replicate | fastqFile                      |
++=============+===========+===========+================================+
+| RIBO        |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
++-------------+-----------+-----------+--------------------------------+
+| RIBO        |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
++-------------+-----------+-----------+--------------------------------+
+| RNA         |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
++-------------+-----------+-----------+--------------------------------+
+| RNA         |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
++-------------+-----------+-----------+--------------------------------+
 
 Executing the workflow
 ======================
