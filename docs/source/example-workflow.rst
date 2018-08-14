@@ -1,6 +1,5 @@
 .. _example-workflow:
 
-.. role:: red
 
 ################
 Example Workflow
@@ -108,7 +107,7 @@ Using the *SRA Toolkit* and the *SRR ID*s for our 4 samples we can use the *fast
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 	
-:red:´**Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**´
+
 
 Now, we create a fastq folder and move all the *.fastq.gz* files into this folder.
 
