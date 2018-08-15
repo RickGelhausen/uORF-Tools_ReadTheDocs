@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'uORF-Tools'
-copyright = '2018, Rick Gelhausen'
-author = 'Rick Gelhausen'
+copyright = '2018, TODO'
+author = 'TODO'
 
 # The short X.Y version
 version = ''
