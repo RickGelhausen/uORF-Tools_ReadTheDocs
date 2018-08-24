@@ -24,11 +24,12 @@ The output is written to a directory structure that corresponds to the workflow 
     :scale: 50%
     :align: center
 
+Test:
 • **annotation:** contains the processed user-provided annotation file with genomic features.
 Contents: *annotation.gtf*
-
 • **bam:** contains a subfolder for each input *.fastq* file. These subfolders contain the *.bam* files created using STAR.
 Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab* 	
+
 
 Installation
 ============
