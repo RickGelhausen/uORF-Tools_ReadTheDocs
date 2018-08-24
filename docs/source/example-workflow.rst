@@ -1,8 +1,8 @@
 .. _example-workflow:
 
-################
-example workflow
-################
+##################
+workflow: GSE66929
+##################
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number *GSE66929*. The retrieval of the data is described in this tutorial.
