@@ -19,7 +19,6 @@ Directory table
 ===============
 
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
-.. TODO ADD TABLE
 
 .. image:: images/directoryTable.png
     :scale: 50%
@@ -76,12 +75,13 @@ Copy or move the genome and the annotation file into the workflow folder and nam
     mv <genomeFile>.fa genome.fa
     mv <annotationFile>.gtf annotation.gtf
 
-Create a folder *fastq/* and copy your fastq files into the folder. Name the files according to a METHOD-CONDITION-SAMPLEID.fastq scheme (e.g. Total-ctrl-1.fastq)
+Create a folder *fastq/* and move or copy all of your compressed fastq files into the folder.
+.. note:: Ensure that you compress the fastq files. The workflow expects compressed files and it saves a lot of disk space.
 
 .. code-block:: bash
 
     mkdir fastq
-    cp <fastqFile>.fastq fastq/<Method-Condition-SampleID>.fastq
+    mv *.fastq.gz fastq/
 	
 Now copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder.
 

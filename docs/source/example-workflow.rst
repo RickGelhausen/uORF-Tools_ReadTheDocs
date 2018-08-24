@@ -1,7 +1,7 @@
 .. _example-workflow:
 
 ################
-Example Workflow
+example workflow
 ################
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
@@ -90,7 +90,7 @@ The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*.
     :scale: 50%
     :align: center
 
-Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files. (We strongly suggest to compress the *.fastq* files in order to save space.)
+Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files. 
 
 .. code-block:: bash
 
@@ -105,7 +105,8 @@ Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fast
 	
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
-	
+
+.. note:: Ensure that you compress the fastq files. The workflow expects compressed fastq files and it saves a lot of disk space.
 .. warning:: **Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**
 
 Now, we create a fastq folder and move all the *.fastq.gz* files into this folder.

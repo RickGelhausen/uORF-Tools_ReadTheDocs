@@ -7,6 +7,7 @@ uORF-Tools Documentation
 
 .. toctree::
    :maxdepth: 2
+   :caption: Introduction
 
    overview
    example-workflow
