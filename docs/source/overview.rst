@@ -18,11 +18,17 @@ The following flowchart describes the processing steps of the workflow and how t
 Directory table
 ===============
 
-The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow if you want to keep the intermediary files (default) or only the final result.
+The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
 
 .. image:: images/directoryTable.png
     :scale: 50%
     :align: center
+
+• **annotation:** contains the processed user-provided annotation file with genomic features.
+Contents: *annotation.gtf*
+
+• **bam:** contains a subfolder for each input *.fastq* file. These subfolders contain the *.bam* files created using STAR.
+Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab* 	
 
 Installation
 ============
