@@ -30,7 +30,8 @@ Test:
   | Contents: *annotation.gtf*
 
 • | **bam:** contains a subfolder for each input *.fastq* file. These subfolders contain the *.bam* files created using STAR.
-  | Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab* 	
+  | Contents: | *Aligned.sortedByCoord.out.bam*, *Log.final.out*, 
+              | *Log.out*, *Log.progress.out*, *SJ.out.tab* 	
 
 HALLO WORLD
 
