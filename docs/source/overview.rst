@@ -82,7 +82,7 @@ The output is written to a directory structure that corresponds to the workflow 
 	- **processing_summary.tsv:** table indicating the lost reads per processing step. 
 
   | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*,
-  |                         *norm_CDS_reads.csv*, *norm_uORFs_reads.csv*, *sfactors_lprot.csv*,
+  |                                             *norm_CDS_reads.csv*, *norm_uORFs_reads.csv*, *sfactors_lprot.csv*,
   |           *processing_summary.tsv*, *uORF_regulation.tsv*, *xtail_cds.csv*, *xtail_cds_fc.pdf*,
   |           *xtail_cds_r.pdf*, *xtail_uORFs.csv*, *xtail_uORFs_fc.pdf*, *xtail_uORFs_r.pdf*
 
