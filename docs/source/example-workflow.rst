@@ -20,8 +20,7 @@ We then download the lastest version of the *uORF-Tools* into the newly created 
 .. code-block:: bash
 
     wget https://github.com/anibunny12/uORF-Tools/archive/1.0.0.tar.gz
-
-	  tar -xzf uORF-Tool-1.0.0.tar.gz
+    tar -xzf uORF-Tool-1.0.0.tar.gz
 
 Retrieve and prepare input files
 ================================
