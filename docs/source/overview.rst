@@ -118,11 +118,12 @@ The first step is downloading the latest version of *uORF-Tools* from Github. Op
 
 .. note:: All following commands assume that you are located in the workflow folder
 
-Now download *uORF-Tools* by entering the following command:
+Now download and unpack the latest version of the *uORF-Tools* by entering the following commands:
 
 .. code-block:: bash
 
-    git clone git@github.com:anibunny12/uORF-Tools.git
+    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.0.tar.gz
+	  tar -xzf uORF-Tool-1.0.0.tar.gz
 
 The *uORF-Tools* are now located in a subdirectory of your workflow.
 
@@ -197,8 +198,7 @@ The intermediary output of the different workflow steps are written to directori
 Run the workflow locally
 ************************
 Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
-of the workflow require a lot of memory, specifically for eukaryotic species. In our tests with the human genome the memory
-consumption did not exceed xxGB. .. TODO **MISSING INFORMATION**
+of the workflow require a lot of memory, specifically for eukaryotic species.
 
 .. code-block:: bash
 

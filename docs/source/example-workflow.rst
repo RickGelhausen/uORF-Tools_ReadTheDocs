@@ -15,11 +15,12 @@ First of all, we start by creating the project directory and changing to it.
 
     mkdir tutorial; cd tutorial;
 	
-We then download the *uORF-Tools* into the newly created project folder.
+We then download the lastest version of the *uORF-Tools* into the newly created project folder and unpack it.
 
 .. code-block:: bash
 
-    git clone git@github.com:anibunny12/uORF-Tools.git
+    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.0.tar.gz
+	  tar -xzf uORF-Tool-1.0.0.tar.gz
 
 Retrieve and prepare input files
 ================================
@@ -204,9 +205,7 @@ Run the workflow locally
 ************************
 
 Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
-of the workflow require a lot of memory, specifically for eukaryotic species. In our tests with the human genome the memory
-consumption did not exceed xxGB. 
-.. TODO:: check this
+of the workflow require a lot of memory, specifically for eukaryotic species.
 
 .. code-block:: bash
 
