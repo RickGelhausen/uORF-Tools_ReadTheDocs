@@ -122,8 +122,8 @@ Now download and unpack the latest version of the *uORF-Tools* by entering the f
 
 .. code-block:: bash
 
-    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.0.tar.gz
-    tar -xzf uORF-Tool-1.0.0.tar.gz
+    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.1.tar.gz
+    tar -xzf 1.0.1.tar.gz; mv uORF-Tools-1.0.1 uORF-Tools; rm 1.0.1.tar.gz;
 
 The *uORF-Tools* are now located in a subdirectory of your workflow.
 

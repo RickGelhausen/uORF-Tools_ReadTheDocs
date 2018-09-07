@@ -19,8 +19,8 @@ We then download the lastest version of the *uORF-Tools* into the newly created 
 
 .. code-block:: bash
 
-    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.0.tar.gz
-    tar -xzf uORF-Tool-1.0.0.tar.gz
+    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.1.tar.gz
+    tar -xzf 1.0.1.tar.gz; mv uORF-Tools-1.0.1 uORF-Tools; rm 1.0.1.tar.gz;
 
 Retrieve and prepare input files
 ================================
@@ -184,8 +184,6 @@ For this tutorial, the resulting *samples.tsv* will look as follows:
 +--------+-----------+-----------+--------------------------------+
 
 .. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
-
-.. TODO:: NAMING CONVENTION FOR FASTQ 
 
 Next, we are going to set up the *config.yaml*.
 
