@@ -42,7 +42,7 @@ On this page, we can directly retrieve both files by clicking on the according d
     wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_28/gencode.v28.annotation.gtf.gz
     wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_28/GRCh38.p12.genome.fa.gz
 
-Then, we are going to decompress both files.
+Then, we are going to unpack both files.
 
 .. code-block:: bash
 
@@ -91,7 +91,8 @@ The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*.
     :scale: 50%
     :align: center
 
-Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files. 
+Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files.
+If you already have an installation of the *SRA Toolkit*, you can use the following commands.
 
 .. code-block:: bash
 
@@ -107,8 +108,24 @@ Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fast
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 
+If you do not have the *SRA Toolkit*, we suggest using a conda environment:
+
+.. code-block:: bash
+
+    conda create -n "sra-tools" -c bioconda -c conda-forge sra-tools
+    source activate sra-tools
+
+This will create a conda envrionment and install the sra-tools with all required dependencies. Then you can use the following commands to generate the required *fastq* files.
+
+.. code-block:: bash
+
+    fasterq-dump SRR1910466; gzip SRR1910466.fastq;
+    fasterq-dump SRR1916542; gzip SRR1916542.fastq;
+    fasterq-dump SRR1910470; gzip SRR1910470.fastq;
+    fasterq-dump SRR1916548; gzip SRR1916548.fastq;
+
 .. note:: Ensure that you compress the fastq files. The workflow expects compressed fastq files and it saves a lot of disk space.
-.. warning:: **Be advised that this step can take several hours depending on the size of the fastq files and your internet connection.**
+.. warning:: **Be advised that the fastq generation step can take several hours depending on the size of the fastq files and your internet connection.**
 
 Now, we create a fastq folder and move all the *.fastq.gz* files into this folder.
 
