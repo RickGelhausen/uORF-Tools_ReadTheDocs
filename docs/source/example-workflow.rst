@@ -7,6 +7,7 @@ Example workflow
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number *GSE66929*. The retrieval of the data is described in this tutorial.
 
+.. note:: Ensure that you are in the uORF-Tools conda environment as explained in the installation section.
 Setup
 =====
 First of all, we start by creating the project directory and changing to it.
@@ -92,6 +93,7 @@ The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*.
     :align: center
 
 Using the *SRA Toolkit* and the *SRR IDs* for our 4 samples we can use the *fasterq-dump* executable to download the according *.fastq* files.
+
 If you already have an installation of the *SRA Toolkit*, you can use the following commands.
 
 .. code-block:: bash
@@ -108,14 +110,14 @@ If you already have an installation of the *SRA Toolkit*, you can use the follow
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 
-If you do not have the *SRA Toolkit*, we suggest using a conda environment:
+If you do not have the *SRA Toolkit*, we suggest using the conda environment:
 
 .. code-block:: bash
 
-    conda create -n "sra-tools" -c bioconda -c conda-forge sra-tools
-    source activate sra-tools
+    conda install sra-tools -c bioconda -c conda-forge
 
-This will create a conda envrionment and install the sra-tools with all required dependencies. Then you can use the following commands to generate the required *fastq* files.
+
+This will install the sra-tools, with all required dependencies, to the current conda environment (uORF-Tools). Then you can use the following commands to generate the required *fastq* files.
 
 .. code-block:: bash
 
