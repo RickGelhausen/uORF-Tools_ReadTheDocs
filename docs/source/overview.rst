@@ -4,14 +4,14 @@ uORF-Tools
 Introduction
 ============
 
-uORF-Tools are a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system snakemake and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License. Installation and basic usage is described below.
+uORF-Tools is a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system **snakemake** and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License. Installation and basic usage is described below.
 
 Program flowchart
 =================
 
 The following flowchart describes the processing steps of the workflow and how they are connected. there is a variant of the workflow accepting a preprocessed uORF-annotation file, to skip the time consuming ribotish step for reruns of the workflow.
 
-.. image:: images/uORFTools.png
+.. image:: images/uORFTools-detailed-reworked_short.png
     :scale: 40%
     :align: center
 
@@ -24,14 +24,11 @@ The output is written to a directory structure that corresponds to the workflow 
     :scale: 50%
     :align: center
 
-• | **annotation:** contains the processed user-provided annotation file with genomic features. 
+• | **annotation:** contains the processed user-provided annotation file with genomic features.
   | Contents: *annotation.gtf*
 
 • | **bam:** contains a subfolder for each input *.fastq* file. These subfolders contain the *.bam* files created using STAR.
-  | Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab* 	
-
-• | **fastq:** contains the user-provided *.fastq* files used as input.
-  | Contents: *<method-condition-replicate>.fastq*
+  | Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab*
 
 • | **fastqc:** contains the result files of a quality control for the input *.fastq* files, using different processing methods:
 
@@ -43,43 +40,25 @@ The output is written to a directory structure that corresponds to the workflow 
 • | **genomes:** contains the genome file, as well as an according index and sizes file.
   | Contents: *genome.fa*, *genome.fa.fai*, *sizes.genome*
 
-• | **genomeStarIndex:** contains the files created by STAR during the creation of a genome index.
-  | Contents: *chrLength.txt*, *chrNameLength.txt*, *chrStart.txt*, *chrName.txt*, *exonGeTrInfo.tab*, *exonInfo.tab*, *genInfo.tab*, *Genome*, *genomeParameters.txt*, *SA*, *SAindex*, *sjdbList.fromGTF.out.tab*, *transcriptInfo.tab*, *sjdbInfo.txt*, *sjdbList.out.tab*
-
-• | **index**: contains an index for the rRNA databases created using *indexdb_rna*.
-  | Contents: *<database-ID>.bursttrie_0.dat*, *<database-ID$>.kmer_0.dat*, *<database-ID>.pos_0.dat*, *<database-ID>.stats*
-
 • | **logs:** contains log files for each step of the workflow.
   | Contents: *<rule>.o<jobID>*, *<methods>.log*
 
 • | **maplink:** contains soft links to the *.bam* files and an according index.
 
-	- **RIBO:** contains soft links to the *.bam* and *.bam.bai* files for RIBO and corresponding parameter files (*.para.py*). 
+	- **RIBO:** contains soft links to the *.bam* and *.bam.bai* files for RIBO and corresponding parameter files (*.para.py*).
   | Contents: *<method-condition-replicate>.bam.bai*, *RIBO/<condition-replicate>.bam.para.py*
-
-• | **norRNA:** contains processed *.fastq* files, where the rRNA has been removed.
-
-	- **rRNA:** contains the *reject.fastq* which specifies the rRNA reads that are removed. 
-
-  | Contents: *<method-condition-replicate>.fastq*, *rRNA/reject.fastq*
 
 • | **report:** contains *.jpg* plots for the *report.html*.
   | Contents: *<condtion-replicate>-qual.jpg*, *xtail_cds_fc.jpg*, *xtail_cds_r.jpg*, *xtail_uORFs_fc.jpg*, *xtail_uORFs_r.jpg*
 
-• | **rRNA_databases:** contains the known annotated rRNA sequences for filtering.
-  | Contents: *<database-ID>.fasta*
-
 • | **tracks:** contains *BED (.bed)*, *wig (.wig)* and *bigWig (.bw)* files for visualizing tracks in a genome browser.
   | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotationNScore.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
-
-• | **trimmed:** contains processed *.fastq* files, where the adapter sequences have been trimmed.
-  | Contents: *<method-condition-replicate>.fastq*
 
 • | **uORFs:** contains the main output of the workflow.
 
 	- **uORFs_regulation.tsv:** table summarizing the predicted uORFs with their regulation on the main ORF.
 	- **merged_uORFs.bed:** genome browser track with predicted uORFs.
-	- **processing_summary.tsv:** table indicating the lost reads per processing step. 
+	- **processing_summary.tsv:** table indicating the lost reads per processing step.
 
   | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*, *norm_CDS_reads.csv*, *norm_uORFs_reads.csv*, *sfactors_lprot.csv*, *processing_summary.tsv*, *uORF_regulation.tsv*, *xtail_cds.csv*, *xtail_cds_fc.pdf*, *xtail_cds_r.pdf*, *xtail_uORFs.csv*, *xtail_uORFs_fc.pdf*, *xtail_uORFs_r.pdf*
 
@@ -95,7 +74,8 @@ The output is written to a directory structure that corresponds to the workflow 
 Installation
 ============
 
-We recommend to install *uORF-Tools* with all dependencies via conda. Once you have `conda <https://conda.io/docs/user-guide/install/index.html>`_ installed simply type:
+We recommend to install *uORF-Tools* with all dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_. We suggest using `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
+After successfully installing miniconda3 execute the following command:
 
 .. code-block:: bash
 
@@ -136,7 +116,7 @@ If the genome and the annotation file are compressed, extract them using *gunzip
 
     gunzip <genomeFile>.fa.gz
     gunzip <annotationFile>.gtf.gz
-	
+
 Copy or move the genome and the annotation file into the workflow folder and name them *genome.fa* and *annotation.gtf*.
 
 .. code-block:: bash
@@ -151,7 +131,7 @@ Create a folder *fastq/* and move or copy all of your compressed fastq files int
 
     mkdir fastq
     mv *.fastq.gz fastq/
-	
+
 Now copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder.
 
 .. code-block:: bash
@@ -166,7 +146,7 @@ Next, customize the *config.yaml*. It contains the following variables:
 •	**samples** The location of the samples sheet created in the previous step.
 •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
- 
+
 Now edit the sample sheet corresponding to your project. It contains the following variables:
 
 • **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
@@ -175,7 +155,7 @@ Now edit the sample sheet corresponding to your project. It contains the followi
 • **fastqFile** Indicates the according fastq file for a given sample.
 
 As seen in the *samples.tsv* template:
-  
+
 +-----------+-----------+-----------+--------------------------------+
 |   method  | condition | replicate | fastqFile                      |
 +===========+===========+===========+================================+
@@ -192,7 +172,7 @@ Executing the workflow
 ======================
 
 The workflow will first retrieve all required programs and install them. Then it will derive the necessary computation step depending on your input files.
-You will receive continuous updates about the progress of the workflow execution. Log files of the individual steps will be written to the logs subdirectory and are named according to the workflow step. 
+You will receive continuous updates about the progress of the workflow execution. Log files of the individual steps will be written to the logs subdirectory and are named according to the workflow step.
 The intermediary output of the different workflow steps are written to directories as shown in the directory table.
 
 Run the workflow locally
