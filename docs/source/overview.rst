@@ -1,10 +1,12 @@
 ##########
 uORF-Tools
 ##########
+
 Introduction
 ============
 
 uORF-Tools is a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system **snakemake** and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License. Installation and basic usage is described below.
+
 
 Program flowchart
 =================
@@ -12,7 +14,7 @@ Program flowchart
 The following flowchart describes the processing steps of the workflow and how they are connected.
 
 .. image:: images/uORFTools-detailed-reworked_short.png
-    :scale: 40%
+    :scale: 30%
     :align: center
 
 Directory table
@@ -27,15 +29,8 @@ The output is written to a directory structure that corresponds to the workflow 
 • | **annotation:** contains the processed user-provided annotation file with genomic features.
   | Contents: *annotation.gtf*
 
-• | **bam:** contains a subfolder for each input *.fastq* file. These subfolders contain the *.bam* files created using STAR.
-  | Contents: *Aligned.sortedByCoord.out.bam*, *Log.final.out*, *Log.out*, *Log.progress.out*, *SJ.out.tab*
-
-• | **fastqc:** contains the result files of a quality control for the input *.fastq* files, using different processing methods:
-
-	- **norRNA:** quality control after removal of the rRNA.
-	- **raw:** quality control for the unprocessed data.
-	- **trimmed:** quality control after removal of the adapter sequences.
-  | Contents: *<method-condition-replicate>_fastqc.zip*, *<method-condition-replicate>-<subfolderName>.html*
+• | **bam:** contains the input *.bam* files.
+  | Contents: *<method>-<conditon>-<replicate>.bam*
 
 • | **genomes:** contains the genome file, as well as an according index and sizes file.
   | Contents: *genome.fa*, *genome.fa.fai*, *sizes.genome*
@@ -58,9 +53,8 @@ The output is written to a directory structure that corresponds to the workflow 
 
 	- **uORFs_regulation.tsv:** table summarizing the predicted uORFs with their regulation on the main ORF.
 	- **merged_uORFs.bed:** genome browser track with predicted uORFs.
-	- **processing_summary.tsv:** table indicating the lost reads per processing step.
 
-  | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*, *norm_CDS_reads.csv*, *norm_uORFs_reads.csv*, *sfactors_lprot.csv*, *processing_summary.tsv*, *uORF_regulation.tsv*, *xtail_cds.csv*, *xtail_cds_fc.pdf*, *xtail_cds_r.pdf*, *xtail_uORFs.csv*, *xtail_uORFs_fc.pdf*, *xtail_uORFs_r.pdf*
+  | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*, *ribo_norm_CDS_reads.csv*, *ribo_norm_uORFs_reads.csv*, *ribo_raw_CDS_reads.csv*, *ribo_raw_uORFs_reads.csv*, *sfactors_lprot.csv*, *uORF_regulation.tsv*
 
 • **uORF-Tools:** contains the workflow tools.
 
@@ -71,32 +65,59 @@ The output is written to a directory structure that corresponds to the workflow 
 	- **scripts:** scripts used by the snakemake workflow.
 	- **templates:** templates for the *config.yaml* and the *samples.tsv*.
 
-Installation
+Requirements
 ============
 
-We recommend to install *uORF-Tools* with all dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_. We suggest using `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
-After successfully installing miniconda3 execute the following command:
+In the following, we describe all the required files and tools needed to run our workflow.
+
+.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow>`.
+
+Tools
+=====
+
+miniconda3
+==========
+
+As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`.
+Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
+
+we strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
+
+After downloading the miniconda3 version suiting your linux system, execute the downloaded bash file and follow the instructions given.
+
+snakemake
+=========
+
+The newest version of snakemake can be download via conda using the following command:
 
 .. code-block:: bash
 
     conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
-    source activate uORF-Tools
 
-Usage
-=====
-
-Using the workflow requires the *uORF-Tools*, a genome sequence (.fasta), an annotation file (.gtf) and the sequencing results files (.fastq). We recommend retrieving both the genome and the annotation files for mouse and human from `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`Ensembl:2018`. The usage of the workflow is first described in general, while a detailed example applied to an example dataset is described here: :ref:`example-workflow <example-workflow>`.
-
-Retrieve uORF-Tools
-===================
-
-The first step is downloading the latest version of *uORF-Tools* from Github. Open your terminal and create a new directory for your workflow and change into it.
+This creates a new conda environment called "uORF-Tools" and installs snakemake into the environment. The environment can be activated using:
 
 .. code-block:: bash
 
-    mkdir uORFflow; cd uORFflow;
+    source activate uORF-Tools
 
-.. note:: All following commands assume that you are located in the workflow folder
+and deactivated using:
+
+.. code-block:: bash
+
+    source deactivate
+
+
+uORF-Tools
+==========
+
+Using the workflow requires the *uORF-Tools*. The latest version is available on our GitHub page.
+
+In order to run the workflow, we suggest that you download the *uORF-Tools* into your project directory.
+The following command creates an example directory and changes into it:
+
+.. code-block:: bash
+
+    mkdir workflow; cd workflow;
 
 Now download and unpack the latest version of the *uORF-Tools* by entering the following commands:
 
@@ -105,103 +126,89 @@ Now download and unpack the latest version of the *uORF-Tools* by entering the f
     wget https://github.com/anibunny12/uORF-Tools/archive/1.0.1.tar.gz
     tar -xzf 1.0.1.tar.gz; mv uORF-Tools-1.0.1 uORF-Tools; rm 1.0.1.tar.gz;
 
-The *uORF-Tools* are now located in a subdirectory of your workflow.
+The *uORF-Tools* are now located in a subdirectory of your workflow directory.
 
-Prepare input files
-===================
+Input files
+===========
 
-If the genome and the annotation file are compressed, extract them using *gunzip* or any other decompression tool.
+Several input files are required in order to run our workflow, a genome sequence (.fa), an annotation file (.gtf) and the bam files (.fastq).
+
+genome.fa and annotation.gtf
+============================
+
+We recommend retrieving both the genome and the annotation files for mouse and human from `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`Ensembl:2018`.
+
+.. note:: For detailed information about downloading and unpacking these files, please refer to our :ref:`example-workflow <example-workflow>`.
+
+
+input .bam files
+================
+
+These are the input files provided by you (the user).
+Please ensure that you move all input .bam files into a folder called *bam*:
 
 .. code-block:: bash
 
-    gunzip <genomeFile>.fa.gz
-    gunzip <annotationFile>.gtf.gz
+    mkdir bam
+    mv *.bam bam/
 
-Copy or move the genome and the annotation file into the workflow folder and name them *genome.fa* and *annotation.gtf*.
 
-.. code-block:: bash
+sample sheet and configuration file
+===================================
 
-    mv <genomeFile>.fa genome.fa
-    mv <annotationFile>.gtf annotation.gtf
+In order to run the *uORF-Tools", you have to provide a sample sheet and a configuration file.
+There are templates for both files available in the *uORF-Tools* folder.
 
-Create a folder *fastq/* and move or copy all of your compressed fastq files into the folder.
-.. note:: Ensure that you compress the fastq files. The workflow expects compressed files and it saves a lot of disk space.
-
-.. code-block:: bash
-
-    mkdir fastq
-    mv *.fastq.gz fastq/
-
-Now copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder.
+Copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder:
 
 .. code-block:: bash
 
     cp uORF-Tools/templates/samples.tsv uORF-Tools/
     cp uORF-Tools/templates/config.yaml uORF-Tools/
 
-Next, customize the *config.yaml*. It contains the following variables:
+Customize the *config.yaml* using your preferred editor. It contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
 •	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
 •	**samples** The location of the samples sheet created in the previous step.
 •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+• **alternativestartcodons** Specify a list of alternative start codons.
 
-Now edit the sample sheet corresponding to your project. It contains the following variables:
+Edit the sample sheet corresponding to your project. It contains the following variables:
 
 • **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
 • **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
 • **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
-• **fastqFile** Indicates the according fastq file for a given sample.
+• **inputFile** Indicates the according bam file for a given sample.
 
 As seen in the *samples.tsv* template:
 
-+-----------+-----------+-----------+--------------------------------+
-|   method  | condition | replicate | fastqFile                      |
-+===========+===========+===========+================================+
-| RIBO      |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
-+-----------+-----------+-----------+--------------------------------+
-| RIBO      |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
-+-----------+-----------+-----------+--------------------------------+
-| RNA       |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
-+-----------+-----------+-----------+--------------------------------+
++-----------+-----------+-----------+------------------+
+|   method  | condition | replicate | inputFile        |
++===========+===========+===========+==================+
+| RIBO      |  A        | 1         | bam/RIBO-A-1.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  A        | 2         | bam/RIBO-A-2.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 1         | bam/RIBO-B-1.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 2         | bam/RIBO-B-2.bam |
++-----------+-----------+-----------+------------------+
 
-Executing the workflow
-======================
 
-The workflow will first retrieve all required programs and install them. Then it will derive the necessary computation step depending on your input files.
-You will receive continuous updates about the progress of the workflow execution. Log files of the individual steps will be written to the logs subdirectory and are named according to the workflow step.
-The intermediary output of the different workflow steps are written to directories as shown in the directory table.
+cluser.yaml
+===========
 
-Run the workflow locally
-************************
-Use the following steps when you plan to execute the workflow on a single server or workstation. Please be aware that some steps
-of the workflow require a lot of memory, specifically for eukaryotic species.
+In the *uORF-Tools* folder, we provide two cluster.yaml files. Needed by snakemake in order to run on a cluster system:
 
-.. code-block:: bash
+• sge-cluster.yaml - for grid based queuing systems
+• torque-cluster.yaml - for torque based queuing systems
 
-    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --latency-wait 60
+example-workflow
+================
 
-Run Snakemake in a cluster environment
-**************************************
-Use the following steps if you are executing the workflow via a queuing system. Edit the configuration file cluster.yaml
-according to your queuing system setup and cluster hardware. The following system call shows the usage with Grid Engine:
-
-.. code-block:: bash
-
-    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
-
-Report
-******
-
-Using any of the presented methods, this will run the workflow on our dataset and create the desired output files. Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
-
-.. code-block:: bash
-
-    snakemake --report report.html
-
+A detailed step by step tutorial is available at :ref:`example-workflow <example-workflow>`.
 
 References
 ==========
