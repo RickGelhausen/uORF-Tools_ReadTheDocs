@@ -14,7 +14,7 @@ Program flowchart
 The following flowchart describes the processing steps of the workflow and how they are connected.
 
 .. image:: images/uORFTools-detailed-reworked_short.png
-    :scale: 30%
+    :scale: 25%
     :align: center
 
 Directory table
@@ -22,7 +22,7 @@ Directory table
 
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
 
-.. image:: images/directoryTable.png
+.. image:: images/directoryTable_short.png
     :scale: 50%
     :align: center
 
@@ -81,12 +81,14 @@ miniconda3
 As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`.
 Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
 
-we strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
+We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
 
 After downloading the miniconda3 version suiting your linux system, execute the downloaded bash file and follow the instructions given.
 
 snakemake
 =========
+
+..note:: The uORF-Tools require snakemake (Version >=5.1.3)
 
 The newest version of snakemake can be download via conda using the following command:
 
@@ -177,25 +179,26 @@ Customize the *config.yaml* using your preferred editor. It contains the followi
 
 Edit the sample sheet corresponding to your project. It contains the following variables:
 
-• **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
+• **method** Indicates the method used for this project, here RIBO for ribosome profiling.
 • **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
 • **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
 • **inputFile** Indicates the according bam file for a given sample.
 
 As seen in the *samples.tsv* template:
 
-+-----------+-----------+-----------+------------------+
-|   method  | condition | replicate | inputFile        |
-+===========+===========+===========+==================+
-| RIBO      |  A        | 1         | bam/RIBO-A-1.bam |
-+-----------+-----------+-----------+------------------+
-| RIBO      |  A        | 2         | bam/RIBO-A-2.bam |
-+-----------+-----------+-----------+------------------+
-| RIBO      |  B        | 1         | bam/RIBO-B-1.bam |
-+-----------+-----------+-----------+------------------+
-| RIBO      |  B        | 2         | bam/RIBO-B-2.bam |
-+-----------+-----------+-----------+------------------+
++--------+-----------+-----------+--------------------+
+| method | condition | replicate | inputFile          |
++========+===========+===========+====================+
+| RIBO   |  A        | 1         | bam/FP-treat-1.bam |
++--------+-----------+-----------+--------------------+
+| RIBO   |  A        | 2         | bam/FP-treat-2.bam |
++--------+-----------+-----------+--------------------+
+| RIBO   |  B        | 1         | bam/FP-ctrl-1.bam  |
++--------+-----------+-----------+--------------------+
+| RIBO   |  B        | 2         | bam/FP-ctrl-2.bam  |
++--------+-----------+-----------+--------------------+
 
+.. warning:: **Please make sure that you have at-least two replicates for each condition**
 
 cluser.yaml
 ===========
