@@ -136,7 +136,7 @@ Input files
 Several input files are required in order to run our workflow, a genome sequence (.fa), an annotation file (.gtf) and the bam files (.fastq).
 
 genome.fa and annotation.gtf
-============================
+****************************
 
 We recommend retrieving both the genome and the annotation files for mouse and human from `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`Ensembl:2018`.
 
@@ -144,7 +144,7 @@ We recommend retrieving both the genome and the annotation files for mouse and h
 
 
 input .bam files
-================
+****************
 
 These are the input files provided by you (the user).
 Please ensure that you move all input .bam files into a folder called *bam*:
@@ -156,7 +156,7 @@ Please ensure that you move all input .bam files into a folder called *bam*:
 
 
 sample sheet and configuration file
-===================================
+***********************************
 
 In order to run the *uORF-Tools", you have to provide a sample sheet and a configuration file.
 There are templates for both files available in the *uORF-Tools* folder.
@@ -198,10 +198,10 @@ As seen in the *samples.tsv* template:
 | RIBO   |  B        | 2         | bam/FP-ctrl-2.bam  |
 +--------+-----------+-----------+--------------------+
 
-.. warning:: **Please make sure that you have at-least two replicates for each condition**
+.. warning:: **Please make sure that you have at-least two replicates for each condition!**
 
 cluser.yaml
-===========
+***********
 
 In the *uORF-Tools* folder, we provide two cluster.yaml files. Needed by snakemake in order to run on a cluster system:
 
