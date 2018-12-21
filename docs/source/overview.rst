@@ -76,7 +76,7 @@ Tools
 =====
 
 miniconda3
-==========
+**********
 
 As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`.
 Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
@@ -86,7 +86,7 @@ We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_
 After downloading the miniconda3 version suiting your linux system, execute the downloaded bash file and follow the instructions given.
 
 snakemake
-=========
+*********
 
 ..note:: The uORF-Tools require snakemake (Version >=5.1.3)
 
@@ -110,7 +110,7 @@ and deactivated using:
 
 
 uORF-Tools
-==========
+**********
 
 Using the workflow requires the *uORF-Tools*. The latest version is available on our GitHub page.
 
