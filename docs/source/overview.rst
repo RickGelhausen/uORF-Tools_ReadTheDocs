@@ -23,7 +23,7 @@ Directory table
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
 
 .. image:: images/directoryTable_short.png
-    :scale: 50%
+    :scale: 25%
     :align: center
 
 • | **annotation:** contains the processed user-provided annotation file with genomic features.
@@ -125,8 +125,8 @@ Now download and unpack the latest version of the *uORF-Tools* by entering the f
 
 .. code-block:: bash
 
-    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.1.tar.gz
-    tar -xzf 1.0.1.tar.gz; mv uORF-Tools-1.0.1 uORF-Tools; rm 1.0.1.tar.gz;
+    wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
+    tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
 
 The *uORF-Tools* are now located in a subdirectory of your workflow directory.
 
@@ -200,8 +200,8 @@ As seen in the *samples.tsv* template:
 
 .. warning:: **Please make sure that you have at-least two replicates for each condition!**
 
-cluser.yaml
-***********
+cluster.yaml
+************
 
 In the *uORF-Tools* folder, we provide two cluster.yaml files. Needed by snakemake in order to run on a cluster system:
 
