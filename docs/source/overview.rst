@@ -23,7 +23,7 @@ Directory table
 The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
 
 .. image:: images/directoryTable_short.png
-    :scale: 25%
+    :scale: 40%
     :align: center
 
 • | **annotation:** contains the processed user-provided annotation file with genomic features.
