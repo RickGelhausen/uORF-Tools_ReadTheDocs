@@ -1,4 +1,4 @@
-.. _example-workflow:
+.. _example-workflow_extended:
 
 ################
 Example workflow
@@ -15,7 +15,7 @@ First of all, we start by creating the project directory and changing to it.
 .. code-block:: bash
 
     mkdir tutorial; cd tutorial;
-	
+
 We then download the lastest version of the *uORF-Tools* into the newly created project folder and unpack it.
 
 .. code-block:: bash
@@ -49,8 +49,8 @@ Then, we are going to unpack both files.
 
     gunzip gencode.v28.annotation.gtf.gz
     gunzip GRCh38.p12.genome.fa.gz
-	
-Finally, we will rename these files to *annotation.gtf* and *genome.fa*. 
+
+Finally, we will rename these files to *annotation.gtf* and *genome.fa*.
 
 .. code-block:: bash
 
@@ -71,7 +71,7 @@ On the NCBI webpage, we search for the GEO accession number, here *GSE66929*.
     :scale: 50%
     :align: center
 
-We receive one search result. 
+We receive one search result.
 
 .. image:: images/SRA_search_hit.png
     :scale: 50%
@@ -86,7 +86,7 @@ When following the link provided in the search results, we get an overview with 
 There are many ways to download fastq files with SRA. For more information about downloading please have a look at the following guide: `Downloading SRA data using command line utilities <https://www.ncbi.nlm.nih.gov/books/NBK158899/>`_.
 
 The simplest way is most likely the usage of the `SRA Toolkit <https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=std>`_, as it allows direct conversion into *.fastq* files.
-The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*. By following the *GSM ID* link (Figure above) and then the *SRX ID* link, the *SRR ID* can be retrieved. 
+The figure below shows how to find the *SRR ID* for the example of *C.rna.rep1*. By following the *GSM ID* link (Figure above) and then the *SRX ID* link, the *SRR ID* can be retrieved.
 
 .. image:: images/SRA_ID.png
     :scale: 50%
@@ -100,13 +100,13 @@ If you already have an installation of the *SRA Toolkit*, you can use the follow
 
     ./<sraToolkitPath>/bin/fasterq-dump SRR1910466
     gzip SRR1910466.fastq
-	
+
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916542
     gzip SRR1916542.fastq
-	
+
     ./<sraToolkitPath>/bin/fasterq-dump SRR1910470
     gzip SRR1910470.fastq
-	
+
     ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
     gzip SRR1916548.fastq
 
@@ -153,22 +153,17 @@ Using any text editor (vim, nano, gedit, atom, ...), we will first edit the *sam
 
 The template looks as follows:
 
-+--------+-----------+-----------+--------------------------------+
-| method | condition | replicate | fastqFile                      |
-+========+===========+===========+================================+
-| RIBO   |  A        | 1         | fastq/FP-ctrl-1-2.fastq.gz     |
-+--------+-----------+-----------+--------------------------------+
-| RIBO   |  B        | 1         | fastq/FP-treat-1-2.fastq.gz    |
-+--------+-----------+-----------+--------------------------------+
-| RNA    |  A        | 1         | fastq/Total-ctrl-1-2.fastq.gz  |
-+--------+-----------+-----------+--------------------------------+
-| RNA    |  B        | 1         | fastq/Total-treat-1-2.fastq.gz |
-+--------+-----------+-----------+--------------------------------+
-
-• **method** Indicates the method used for this project. RIBO for ribosome profiling or RNA for RNA-seq.
-• **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
-• **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
-• **fastqFile** Indicates the according fastq file for a given sample.
++--------+-----------+-----------+--------------------+
+| method | condition | replicate | inputFile          |
++========+===========+===========+====================+
+| RIBO   |  A        | 1         | bam/FP-treat-1.bam |
++--------+-----------+-----------+--------------------+
+| RIBO   |  A        | 2         | bam/FP-treat-2.bam |
++--------+-----------+-----------+--------------------+
+| RIBO   |  B        | 1         | bam/FP-ctrl-1.bam  |
++--------+-----------+-----------+--------------------+
+| RIBO   |  B        | 2         | bam/FP-ctrl-2.bam  |
++--------+-----------+-----------+--------------------+
 
 
 For this tutorial, the resulting *samples.tsv* will look as follows:
@@ -192,7 +187,7 @@ Next, we are going to set up the *config.yaml*.
 .. code-block:: bash
 
     vim uORF-Tools/config.yaml
-		
+
 This file contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
@@ -203,7 +198,7 @@ This file contains the following variables:
 
 .. code-block:: bash
 
-    #Taxonomy of the samples to be processed, possible are Eukarya, Bacteria, Archea 
+    #Taxonomy of the samples to be processed, possible are Eukarya, Bacteria, Archea
     taxonomy: "Eukarya"
     #Adapter sequence used
     adapter: ""
@@ -243,7 +238,7 @@ Example: Run Snakemake in a cluster environment
 
 .. warning:: **Be advised that this is a specific example, the required options may change depending on your system.**
 
-We ran the tutorial workflow in a cluster environment, specifically a TORQUE cluster environment. 
+We ran the tutorial workflow in a cluster environment, specifically a TORQUE cluster environment.
 Therefore, we created a bash script *torque.sh* in our project folder.
 
 .. code-block:: bash
