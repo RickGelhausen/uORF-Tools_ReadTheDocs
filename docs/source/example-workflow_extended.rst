@@ -1,11 +1,11 @@
-.. _example-workflow_extended:
+.. _example-workflow-extended:
 
 ################
 Example workflow
 ################
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
-The dataset is available under the GEO accession number *GSE66929*. The retrieval of the data is described in this tutorial.
+The dataset is available under the GEO accession number *GSE103719*. The retrieval of the data is described in this tutorial.
 
 .. note:: Ensure that you are in the uORF-Tools conda environment as explained in the installation section.
 Setup
@@ -20,8 +20,8 @@ We then download the lastest version of the *uORF-Tools* into the newly created 
 
 .. code-block:: bash
 
-    wget https://github.com/anibunny12/uORF-Tools/archive/1.0.1.tar.gz
-    tar -xzf 1.0.1.tar.gz; mv uORF-Tools-1.0.1 uORF-Tools; rm 1.0.1.tar.gz;
+    wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
+    tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
 
 Retrieve and prepare input files
 ================================
