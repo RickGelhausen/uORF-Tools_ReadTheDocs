@@ -10,5 +10,4 @@ uORF-Tools
    :caption: Examples
 
    example-workflow
-   
    extended-workflow
