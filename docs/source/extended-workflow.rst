@@ -68,7 +68,7 @@ Therefore, we will use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/
 On the NCBI webpage, we search for the GEO accession number, here *GSE66929*.
 
 .. image:: images/SRA_search.png
-    :scale: 50%
+    :scale: 40%
     :align: center
 
 We receive one search result.
@@ -98,17 +98,29 @@ If you already have an installation of the *SRA Toolkit*, you can use the follow
 
 .. code-block:: bash
 
-    ./<sraToolkitPath>/bin/fasterq-dump SRR1910466
-    gzip SRR1910466.fastq
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026765
+    gzip SRR6026765.fastq
 
-    ./<sraToolkitPath>/bin/fasterq-dump SRR1916542
-    gzip SRR1916542.fastq
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026766
+    gzip SRR6026766.fastq
 
-    ./<sraToolkitPath>/bin/fasterq-dump SRR1910470
-    gzip SRR1910470.fastq
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026769
+    gzip SRR6026769.fastq
 
-    ./<sraToolkitPath>/bin/fasterq-dump SRR1916548
-    gzip SRR1916548.fastq
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026770
+    gzip SRR6026770.fastq
+
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026773
+    gzip SRR6026773.fastq
+
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026774
+    gzip SRR6026774.fastq
+
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026777
+    gzip SRR6026777.fastq
+
+    ./<sraToolkitPath>/bin/fasterq-dump SRR6026778
+    gzip SRR6026778.fastq
 
 If you do not have the *SRA Toolkit*, we suggest using the conda environment:
 
@@ -121,10 +133,14 @@ This will install the sra-tools, with all required dependencies, to the current 
 
 .. code-block:: bash
 
-    fasterq-dump SRR1910466; gzip SRR1910466.fastq;
-    fasterq-dump SRR1916542; gzip SRR1916542.fastq;
-    fasterq-dump SRR1910470; gzip SRR1910470.fastq;
-    fasterq-dump SRR1916548; gzip SRR1916548.fastq;
+    fasterq-dump SRR6026765; gzip SRR6026765.fastq;
+    fasterq-dump SRR6026766; gzip SRR6026766.fastq;
+    fasterq-dump SRR6026769; gzip SRR6026769.fastq;
+    fasterq-dump SRR6026770; gzip SRR6026770.fastq;
+    fasterq-dump SRR6026773; gzip SRR6026773.fastq;
+    fasterq-dump SRR6026774; gzip SRR6026774.fastq;
+    fasterq-dump SRR6026777; gzip SRR6026777.fastq;
+    fasterq-dump SRR6026778; gzip SRR6026778.fastq;
 
 .. note:: Ensure that you compress the fastq files. The workflow expects compressed fastq files and it saves a lot of disk space.
 .. warning:: **Be advised that the fastq generation step can take several hours depending on the size of the fastq files and your internet connection.**
@@ -169,15 +185,23 @@ The template looks as follows:
 For this tutorial, the resulting *samples.tsv* will look as follows:
 
 +--------+-----------+-----------+--------------------------------+
-| method | condition | replicate | fastqFile                      |
+| method | condition | replicate | inputFile                      |
 +========+===========+===========+================================+
-| RIBO   |  A        | 1         | fastq/SRR1916542.fastq.gz      |
+| RNA    |  A        | 1         | fastq/SRR6026765.fastq.gz      |
 +--------+-----------+-----------+--------------------------------+
-| RIBO   |  B        | 1         | fastq/SRR1916548.fastq.gz      |
+| RNA    |  A        | 2         | fastq/SRR6026766.fastq.gz      |
 +--------+-----------+-----------+--------------------------------+
-| RNA    |  A        | 1         | fastq/SRR1910466.fastq.gz      |
+| RNA    |  B        | 1         | fastq/SRR6026769.fastq.gz      |
 +--------+-----------+-----------+--------------------------------+
-| RNA    |  B        | 1         | fastq/SRR1910470.fastq.gz      |
+| RNA    |  B        | 2         | fastq/SRR6026770.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  A        | 1         | fastq/SRR6026773.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  A        | 2         | fastq/SRR6026774.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  B        | 1         | fastq/SRR6026777.fastq.gz      |
++--------+-----------+-----------+--------------------------------+
+| RIBO   |  B        | 2         | fastq/SRR6026778.fastq.gz      |
 +--------+-----------+-----------+--------------------------------+
 
 .. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
