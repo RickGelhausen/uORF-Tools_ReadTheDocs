@@ -1,3 +1,5 @@
+.. _extended-workflow:
+
 #########################
 Extended Example workflow
 #########################
