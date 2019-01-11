@@ -78,8 +78,7 @@ Tools
 miniconda3
 **********
 
-As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`.
-Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
+As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
 
 We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
 
@@ -88,7 +87,7 @@ After downloading the miniconda3 version suiting your linux system, execute the 
 snakemake
 *********
 
-..note:: The uORF-Tools require snakemake (Version >=5.1.3)
+.. note:: The uORF-Tools require snakemake (Version >=5.1.3)
 
 The newest version of snakemake can be download via conda using the following command:
 
@@ -158,7 +157,7 @@ Please ensure that you move all input .bam files into a folder called *bam*:
 sample sheet and configuration file
 ***********************************
 
-In order to run the *uORF-Tools", you have to provide a sample sheet and a configuration file.
+In order to run the *uORF-Tools*, you have to provide a sample sheet and a configuration file.
 There are templates for both files available in the *uORF-Tools* folder.
 
 Copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder:
@@ -204,7 +203,7 @@ As seen in the *samples.tsv* template:
 cluster.yaml
 ************
 
-In the *uORF-Tools* folder, we provide two cluster.yaml files. Needed by snakemake in order to run on a cluster system:
+In the *uORF-Tools* folder, we provide two cluster.yaml files needed by snakemake in order to run on a cluster system:
 
 • sge-cluster.yaml - for grid based queuing systems
 • torque-cluster.yaml - for torque based queuing systems
