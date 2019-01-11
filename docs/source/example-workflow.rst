@@ -135,7 +135,7 @@ Simply overwrite the *samples.tsv* using:
 
 .. code-block:: bash
 
-    mv bam-samples.tsv samples.tsv
+    mv uORF-Tools/bam-samples.tsv uORF-Tools/samples.tsv
 
 Next, we are going to set up the *config.yaml*.
 

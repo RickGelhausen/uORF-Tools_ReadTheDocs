@@ -160,7 +160,7 @@ If you do not have the *SRA Toolkit*, we suggest using the conda environment:
 
 .. code-block:: bash
 
-    conda install sra-tools -c bioconda -c conda-forge
+    conda install sra-tools -c conda-forge -c bioconda
 
 
 This will install the sra-tools, with all required dependencies, to the current conda environment (uORF-Tools). Then you can use the following commands to generate the required *fastq* files.
@@ -238,7 +238,7 @@ Simply overwrite the *samples.tsv* using:
 
 .. code-block:: bash
 
-    mv fastq-samples.tsv samples.tsv
+    mv uORF-Tools/fastq-samples.tsv uORF-Tools/samples.tsv
 
 Next, we are going to set up the *config.yaml*.
 
