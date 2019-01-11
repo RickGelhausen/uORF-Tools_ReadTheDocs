@@ -1,3 +1,5 @@
+.. _overview:
+
 ##########
 uORF-Tools
 ##########
@@ -211,13 +213,13 @@ In the *uORF-Tools* folder, we provide two cluster.yaml files needed by snakemak
 example-workflow
 ================
 
-A detailed step by step tutorial is available at :ref:`example-workflow <example-workflow>`.
+A detailed step by step tutorial is available at: :ref:`example-workflow <example-workflow>`.
 
 extended-workflow
 =================
 
 We also provide an extended workflow containing a preprocessing step, starting with fastq files.
-A detailed step by step tutorial is available at :ref:`extended-workflow <extended-workflow>`.
+A detailed step by step tutorial is available at: :ref:`extended-workflow <extended-workflow>`.
 
 References
 ==========
