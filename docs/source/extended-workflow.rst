@@ -7,12 +7,11 @@ Extended workflow
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number *GSE103719*. The retrieval of the data is described in this tutorial.
 
-.. note:: Ensure that you are in the uORF-Tools conda environment.
-If you have not yet created a conda environment please do so now using:
+.. note:: Ensure that you have miniconda3 installed and an environment set-up. Please refer to the overview for details on the installation.
+If you have not yet activated the conda environment:
 
 .. code-block:: bash
 
-    conda create -c conda-forge -c bioconda -n uORF-Tools snakemake
     source activate uORF-Tools
 
 Setup
