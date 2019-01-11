@@ -70,12 +70,12 @@ Fastq files
 In this example, we will use both *RNA-seq* and *RIBO-seq* data. In order to fasten up the tutorial, we download only 2 of the 4 replicates available for each Condition.
 .. note:: Please note that you should always use all available replicates, when analyzing your data.
 
-Next, we want to acquire the fastq files.
+We show two possible ways to download the data in the following:
 
-European Nucleotide Archive
----------------------------
+European Nucleotide Archive (ENA)
+---------------------------------
 
-For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) :cite:`SIL:KEA:2017european` as it provides direct download links when searching for a dataset.
+For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ :cite:`SIL:KEA:2017european` as it provides direct download links when searching for a dataset.
 Use the interface on ENA or type the follwing commands:
 
 .. code-block:: bash
@@ -95,10 +95,10 @@ Then, we create a fastq folder and move all the *.fastq.gz* files into this fold
 
     mkdir fastq; mv *.fastq.gz fastq/;
 
-Sequence Read Archive
----------------------
+Sequence Read Archive (SRA)
+---------------------------
 
-Alternatively, e.g. if a dataset is not available on ENA, we can use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ (SRA) :cite:`SRA:2011`, which is hosted by NCBI.
+Alternatively, e.g. if a dataset is not available on ENA, we can use the `Sequence Read Archive <https://www.ncbi.nlm.nih.gov/sra>`_ :cite:`SRA:2011`, which is hosted by NCBI.
 On the NCBI webpage, we search for the GEO accession number, here *GSE103719*.
 
 .. image:: images/SRA_search.png
