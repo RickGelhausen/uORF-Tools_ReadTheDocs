@@ -73,7 +73,7 @@ In this example, we will use both *RNA-seq* and *RIBO-seq* data. In order to fas
 Next, we want to acquire the fastq files. For many datasets, the easiest way to retrieve the fastq files is using the `European Nucleotide Archive <https://www.ebi.ac.uk/ena>`_ (ENA) :cite:`SIL:KEA:2017european` as it provides direct download links when searching for a dataset.
 Use the interface on ENA or type the follwing commands:
 
--- code-block:: bash
+.. code-block:: bash
 
     wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR602/005/SRR6026765/SRR6026765.fastq.gz;
     wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR602/006/SRR6026766/SRR6026766.fastq.gz;
