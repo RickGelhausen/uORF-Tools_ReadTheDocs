@@ -1,5 +1,3 @@
-.. _overview:
-
 ##########
 uORF-Tools
 ##########
@@ -74,6 +72,7 @@ In the following, we describe all the required files and tools needed to run our
 
 .. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow>`.
 
+.. _overview:
 Tools
 =====
 
