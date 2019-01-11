@@ -11,7 +11,7 @@ If you have not yet create a conda environment please do so now using:
 
 .. code-block:: bash
 
-    conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
+    conda created -c conda-forge -c bioconda -n uORF-Tools snakemake
     source activate uORF-Tools
 
 Setup
@@ -137,7 +137,7 @@ Simply overwrite the *samples.tsv* using:
 .. code-block:: bash
 
     mv bam-samples.tsv samples.tsv
-    
+
 Next, we are going to set up the *config.yaml*.
 
 .. code-block:: bash

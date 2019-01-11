@@ -94,7 +94,7 @@ The newest version of snakemake can be download via conda using the following co
 
 .. code-block:: bash
 
-    conda create -c bioconda -c conda-forge -n uORF-Tools snakemake
+    conda create -c conda-forge -c bioconda -n uORF-Tools snakemake
 
 This creates a new conda environment called "uORF-Tools" and installs snakemake into the environment. The environment can be activated using:
 
@@ -213,6 +213,12 @@ example-workflow
 ================
 
 A detailed step by step tutorial is available at :ref:`example-workflow <example-workflow>`.
+
+extended-workflow
+=================
+
+We also provide an extended workflow containing a preprocessing step, starting with fastq files.
+A detailed step by step tutorial is available at :ref:`extended-workflow <extended-workflow>`.
 
 References
 ==========
