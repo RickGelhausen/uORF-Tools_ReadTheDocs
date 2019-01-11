@@ -216,7 +216,7 @@ We proceeded by writing the queuing script:
     #PBS -o <PATH/ProjectFolder>
     #PBS -j oe
     cd <PATH/ProjectFolder>
-    source activate snakemake
+    source activate uORF-Tools
     snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
 
 We then simply submitted this job to the cluster:
