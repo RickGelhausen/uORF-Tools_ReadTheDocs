@@ -93,13 +93,7 @@ Finally, we will prepare the configuration file (*config.yaml*) and the sample s
 
     cp uORF-Tools/templates/* uORF-Tools/
 
-Using any text editor (vim, nano, gedit, atom, ...), we will first edit the *samples.tsv*.
-
-.. code-block:: bash
-
-    vim uORF-Tools/samples.tsv
-
-The template looks as follows:
+The standard template *samples.tsv* looks as follows:
 
 +--------+-----------+-----------+--------------------+
 | method | condition | replicate | inputFile          |
@@ -113,7 +107,8 @@ The template looks as follows:
 | RIBO   |  B        | 2         | bam/FP-ctrl-2.bam  |
 +--------+-----------+-----------+--------------------+
 
-We will change it to :
+Using any text editor (vim, nano, gedit, atom, ...), we will first edit the *samples.tsv*.
+It has to be changed to:
 
 +-----------+-----------+-----------+------------------+
 |   method  | condition | replicate | inputFile        |
@@ -135,9 +130,14 @@ We will change it to :
 | RIBO      |  B        | 4         | bam/RIBO-B-4.bam |
 +-----------+-----------+-----------+------------------+
 
-.. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
-.. warning:: **Please make sure that you have at-least two replicates for each condition!**
+.. warning:: **Please ensure not to replace any tabulator symbols with spaces while changing this file.**
+.. note:: For simplicity, we provided a ready-to-use sample file *bam-samples.tsv*.
+Simply overwrite the *samples.tsv* using:
 
+.. code-block:: bash
+
+    mv bam-samples.tsv samples.tsv
+    
 Next, we are going to set up the *config.yaml*.
 
 .. code-block:: bash

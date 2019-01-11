@@ -180,7 +180,7 @@ Customize the *config.yaml* using your preferred editor. It contains the followi
 Edit the sample sheet corresponding to your project. It contains the following variables:
 
 • **method** Indicates the method used for this project, here RIBO for ribosome profiling.
-• **condition** Indicates the applied condition (A, B / CTRL, TREAT). Please ensure that you put the control before the treatment alphabetically (e.g. A: Control B: Treatment or CTRL: Control, TREAT: Treatment)
+• **condition** Indicates the applied condition (e.g. A, B, ...).
 • **replicate** ID used to distinguish between the different replicates (e.g. 1,2, ...)
 • **inputFile** Indicates the according bam file for a given sample.
 
@@ -199,6 +199,7 @@ As seen in the *samples.tsv* template:
 +--------+-----------+-----------+--------------------+
 
 .. warning:: **Please make sure that you have at-least two replicates for each condition!**
+.. warning:: **Please ensure that you put the treatment before the control alphabetically (e.g. A: Treatment B: Control)**
 
 cluster.yaml
 ************
