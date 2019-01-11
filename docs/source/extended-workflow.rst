@@ -246,7 +246,7 @@ This file contains the following variables:
     uorfannotationpath: ""
     alternativestartcodons: "CTG,GTG,TTG"
 
-For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*. We let *Trim galore* determine the correct adapter sequence. The path to *samples.tsv* is correct and we precomputed nothing, therefore we leave the rest empty.
+For this tutorial, we can keep the default values for the *config.yaml*.
 
 Running the workflow
 ====================
@@ -261,7 +261,7 @@ of the workflow require a lot of memory, specifically for eukaryotic species.
 
 .. code-block:: bash
 
-    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --latency-wait 60
+    snakemake --use-conda -s uORF-Tools/Extended_Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --latency-wait 60
 
 Run Snakemake in a cluster environment
 **************************************
@@ -271,7 +271,7 @@ according to your queuing system setup and cluster hardware. The following syste
 
 .. code-block:: bash
 
-    snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
+    snakemake --use-conda -s uORF-Tools/Extended_Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/cluster.yaml
 
 Example: Run Snakemake in a cluster environment
 ***********************************************
@@ -299,7 +299,7 @@ We proceeded by writing the queueing script:
     #PBS -j oe
     cd <PATH/ProjectFolder>
     source activate snakemake
-    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Extended_Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
 
 We then simply submitted this job to the cluster:
 
@@ -316,7 +316,7 @@ Once the workflow has finished, we can request an automatically generated *repor
 
 .. code-block:: bash
 
-    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --report report.html
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Extended_Snakefile --configfile uORF-Tools/config.yaml --report report.html
 
 
 References
