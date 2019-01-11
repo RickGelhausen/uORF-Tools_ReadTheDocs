@@ -74,6 +74,7 @@ Next, we want to acquire the bam files. The bam files for the tutorial dataset c
 .. code-block:: bash
 
     wget ftp://biftp.informatik.uni-freiburg.de/pub/uORF-Tools/bam.tar.gz; tar -zxvf bam.tar.gz;
+    rm bam.tar.gz;
 
 This will create a bam folder containing all the files necessary to run the workflow.
 If you prefer using your own .bam files, we suggest creating a bam folder and copying the files into it.
