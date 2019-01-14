@@ -1,2 +1,2 @@
 sphinxcontrib-bibtex
-autosectionlabel_prefix_document
+sphinx.ext.autosectionlabel

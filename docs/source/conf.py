@@ -41,7 +41,7 @@ release = '2.0.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinxcontrib.bibtex',
-    'autosectionlabel_prefix_document',
+    'sphinx.ext.autosectionlabel',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
