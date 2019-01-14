@@ -74,7 +74,7 @@ In the following, we describe all the required files and tools needed to run our
 
 Tools
 =====
-.. _overview:
+
 miniconda3
 **********
 
