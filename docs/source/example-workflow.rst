@@ -6,7 +6,7 @@ Example workflow
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from our FTP-Server.
 
-.. note:: Ensure that you have miniconda3 installed and an environment set-up. Please refer to the :ref:`overview <test>` for details on the installation.
+.. note:: Ensure that you have miniconda3 installed and an environment set-up. Please refer to the :ref:`test <overview>` for details on the installation.
 If you have not yet activated the conda environment:
 
 .. code-block:: bash
