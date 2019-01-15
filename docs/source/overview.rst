@@ -139,7 +139,7 @@ genome.fa and annotation.gtf
 
 We recommend retrieving both the genome and the annotation files for mouse and human from `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`Ensembl:2018`.
 
-.. note:: For detailed information about downloading and unpacking these files, please refer to our :ref:`example-workflow <example-workflow:Example-workflow>`.
+.. note:: For detailed information about downloading and unpacking these files, please refer to our :ref:`example-workflow <Example-workflow>`.
 
 
 input .bam files
