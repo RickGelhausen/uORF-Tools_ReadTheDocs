@@ -36,7 +36,7 @@ Before starting the workflow, we have to acquire and prepare several input files
 
 Annotation and genome files
 ***************************
-First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` webpage for the human genome.
+First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/human/>`_ :cite:`Gencode` webpage for the human genome.
 
 .. image:: images/GenCode_download.png
     :scale: 50%
