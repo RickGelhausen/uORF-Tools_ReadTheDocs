@@ -20,7 +20,7 @@ The following flowchart describes the processing steps of the workflow and how t
 Directory table
 ===============
 
-The output is written to a directory structure that corresponds to the workflow steps, you can decide at the bedginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
+The output is written to a directory structure that corresponds to the workflow steps, you can decide at the beginning of the workflow whether you want to keep the intermediary files (default) or only the final result.
 
 .. image:: images/directoryTable_short.png
     :scale: 35%
