@@ -70,7 +70,7 @@ Requirements
 
 In the following, we describe all the required files and tools needed to run our workflow.
 
-.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow>`.
+.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <Example-workflow>`.
 
 Tools
 =====
@@ -139,7 +139,7 @@ genome.fa and annotation.gtf
 
 We recommend retrieving both the genome and the annotation files for mouse and human from `GENCODE <https://www.gencodegenes.org/releases/current.html>`_ :cite:`Gencode` and for other species from `Ensembl Genomes <http://ensemblgenomes.org/>`_ :cite:`Ensembl:2018`.
 
-.. note:: For detailed information about downloading and unpacking these files, please refer to our :ref:`example-workflow <example-workflow>`.
+.. note:: For detailed information about downloading and unpacking these files, please refer to our :ref:`example-workflow <Example-workflow>`.
 
 
 input .bam files
@@ -211,13 +211,13 @@ In the *uORF-Tools* folder, we provide two cluster.yaml files needed by snakemak
 example-workflow
 ================
 
-A detailed step by step tutorial is available at: :ref:`example-workflow <example-workflow>`.
+A detailed step by step tutorial is available at: :ref:`example-workflow <Example-workflow>`.
 
 extended-workflow
 =================
 
 We also provide an extended workflow containing a preprocessing step, starting with fastq files.
-A detailed step by step tutorial is available at: :ref:`extended-workflow <extended-workflow>`.
+A detailed step by step tutorial is available at: :ref:`extended-workflow <Extended-workflow>`.
 
 References
 ==========
