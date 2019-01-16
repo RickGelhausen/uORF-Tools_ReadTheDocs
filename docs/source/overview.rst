@@ -117,7 +117,7 @@ The following command creates an example directory and changes into it:
 
     mkdir workflow; cd workflow;
 
-Now download and unpack the latest version of the **uORF-Tools** by entering the following commands:
+Now, download and unpack the latest version of the **uORF-Tools** by entering the following commands:
 
 .. code-block:: bash
 
@@ -129,7 +129,7 @@ The **uORF-Tools** are now located in a subdirectory of your workflow directory.
 Input files
 ===========
 
-Several input files are required in order to run our workflow, a genome sequence (.fa), an annotation file (.gtf) and the bam files (.fastq).
+Several input files are required in order to run our workflow, a genome sequence (.fa), an annotation file (.gtf) and the bam files (.bam).
 
 genome.fa and annotation.gtf
 ****************************
@@ -143,7 +143,7 @@ input .bam files
 ****************
 
 These are the input files provided by you (the user).
-Please ensure that you move all input .bam files into a folder called *bam*:
+Please ensure that you move all input *.bam* files into a folder called **bam**:
 
 .. code-block:: bash
 
@@ -154,22 +154,22 @@ Please ensure that you move all input .bam files into a folder called *bam*:
 sample sheet and configuration file
 ***********************************
 
-In order to run the *uORF-Tools*, you have to provide a sample sheet and a configuration file.
-There are templates for both files available in the *uORF-Tools* folder.
+In order to run the **uORF-Tools**, you have to provide a sample sheet and a configuration file.
+There are templates for both files available in the **uORF-Tools** folder.
 
-Copy the templates of the sample sheet and the configuration file into the *uORF-Tools* folder:
+Copy the templates of the sample sheet and the configuration file into the **uORF-Tools** folder:
 
 .. code-block:: bash
 
     cp uORF-Tools/templates/samples.tsv uORF-Tools/
     cp uORF-Tools/templates/config.yaml uORF-Tools/
 
-Customize the *config.yaml* using your preferred editor. It contains the following variables:
+Customize the **config.yaml** using your preferred editor. It contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
-•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the extended workflow)
 •	**samples** The location of the samples sheet created in the previous step.
-•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the extended workflow)
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 • **alternativestartcodons** Specify a list of alternative start codons.
 
@@ -200,10 +200,10 @@ As seen in the *samples.tsv* template:
 cluster.yaml
 ************
 
-In the *uORF-Tools* folder, we provide two cluster.yaml files needed by snakemake in order to run on a cluster system:
+In the **uORF-Tools** folder, we provide two cluster.yaml files needed by snakemake in order to run on a cluster system:
 
-• sge-cluster.yaml - for grid based queuing systems
-• torque-cluster.yaml - for torque based queuing systems
+• **sge-cluster.yaml** - for grid based queuing systems
+• **torque-cluster.yaml** - for torque based queuing systems
 
 example-workflow
 ================

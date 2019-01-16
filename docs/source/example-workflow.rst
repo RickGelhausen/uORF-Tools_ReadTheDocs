@@ -35,7 +35,7 @@ Before starting the workflow, we have to acquire and prepare several input files
 
 Annotation and genome files
 ***************************
-First, we want to retrieve the annotation file and the genome file. In this case we can find both on the `GENCODE <https://www.gencodegenes.org/human/>`_ :cite:`Gencode` webpage for the human genome.
+First, we want to retrieve the annotation file and the genome file. In this case, we can find both on the `GENCODE <https://www.gencodegenes.org/human/>`_ :cite:`Gencode` webpage for the human genome.
 
 .. image:: images/GenCode_download.png
     :scale: 50%
@@ -69,7 +69,7 @@ Another webpage that provides these files is `Ensembl Genomes <http://www.ensemb
 
 Next, we want to acquire the bam files. The bam files for the tutorial dataset can be downloaded from our FTP-Server:
 
-..note:: we provide both a .zip and a .tar.gz file. We recommend the .tar.gz file as most linux systems can decompress them via commandline by default.
+.. note:: we provide both a .zip and a .tar.gz file. We recommend the .tar.gz file as most linux systems can decompress them via commandline by default.
 
 .. code-block:: bash
 
@@ -147,7 +147,7 @@ Next, we are going to set up the *config.yaml*.
 This file contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
-•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the extended workflow)
 •	**samples** The location of the samples sheet created in the previous step.
 •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
@@ -164,7 +164,7 @@ This file contains the following variables:
     uorfannotationpath: ""
     alternativestartcodons: "CTG,GTG,TTG"
 
-For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*.  The path to *samples.tsv* is correct.
+For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*. The path to *samples.tsv* is set correctly.
 
 Running the workflow
 ====================

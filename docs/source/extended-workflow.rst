@@ -20,7 +20,7 @@ First of all, we start by creating the project directory and changing to it.
 
 .. code-block:: bash
 
-    mkdir tutorial; cd tutorial;
+    mkdir tutorial_extended; cd tutorial_extended;
 
 We then download the latest version of the **uORF-Tools** into the newly created project folder and unpack it.
 
@@ -249,9 +249,9 @@ Next, we are going to set up the *config.yaml*.
 This file contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
-•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically.
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the extended workflow)
 •	**samples** The location of the samples sheet created in the previous step.
-•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
+•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the extended workflow)
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
 • **alternativestartcodons** Specify a list of alternative start codons.
 
