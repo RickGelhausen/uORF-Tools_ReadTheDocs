@@ -75,9 +75,9 @@ Tools
 miniconda3
 **********
 
-As this workflow is based on the workflow management system  `**snakemake** <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
+As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, **Snakemake** will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
 
-We strongly recommend installing `**miniconda3** <https://conda.io/miniconda.html>`_ with **python3.7**.
+We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with **python3.7**.
 
 After downloading the **miniconda3** version suiting your linux system, execute the downloaded bash file and follow the instructions given.
 
@@ -90,13 +90,13 @@ The newest version of snakemake can be downloaded via conda using the following 
 
 .. code-block:: bash
 
-    conda create -c conda-forge -c bioconda -n uORF-Tools snakemake
+    conda create -c conda-forge -c bioconda -n snakemake snakemake
 
-This creates a new conda environment called "uORF-Tools" and installs snakemake into the environment. The environment can be activated using:
+This creates a new conda environment called **snakemake** and installs **snakemake** into the environment. The environment can be activated using:
 
 .. code-block:: bash
 
-    source activate uORF-Tools
+    source activate snakemake
 
 and deactivated using:
 
@@ -108,23 +108,23 @@ and deactivated using:
 uORF-Tools
 **********
 
-Using the workflow requires the *uORF-Tools*. The latest version is available on our GitHub page.
+Using the workflow requires the **uORF-Tools**. The latest version is available on our GitHub page.
 
-In order to run the workflow, we suggest that you download the *uORF-Tools* into your project directory.
+In order to run the workflow, we suggest that you download the **uORF-Tools** into your project directory.
 The following command creates an example directory and changes into it:
 
 .. code-block:: bash
 
     mkdir workflow; cd workflow;
 
-Now download and unpack the latest version of the *uORF-Tools* by entering the following commands:
+Now download and unpack the latest version of the **uORF-Tools** by entering the following commands:
 
 .. code-block:: bash
 
     wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
     tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
 
-The *uORF-Tools* are now located in a subdirectory of your workflow directory.
+The **uORF-Tools** are now located in a subdirectory of your workflow directory.
 
 Input files
 ===========
