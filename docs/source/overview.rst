@@ -5,13 +5,13 @@ uORF-Tools
 Introduction
 ============
 
-uORF-Tools is a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system **snakemake** and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License. Installation and basic usage is described below.
+uORF-Tools is a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system **snakemake** and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License **GNU General Public License 3**. Installation and basic usage is described below.
 
 
 Program flowchart
 =================
 
-The following flowchart describes the processing steps of the workflow and how they are connected.
+The following flowchart describes the processing steps of the workflow and how they are connected:
 
 .. image:: images/uORFTools-detailed-reworked_short.png
     :scale: 25%
@@ -42,9 +42,6 @@ The output is written to a directory structure that corresponds to the workflow 
 
 	- **RIBO:** contains soft links to the *.bam* and *.bam.bai* files for RIBO and corresponding parameter files (*.para.py*).
   | Contents: *<method-condition-replicate>.bam.bai*, *RIBO/<condition-replicate>.bam.para.py*
-
-• | **report:** contains *.jpg* plots for the *report.html*.
-  | Contents: *<condtion-replicate>-qual.jpg*, *xtail_cds_fc.jpg*, *xtail_cds_r.jpg*, *xtail_uORFs_fc.jpg*, *xtail_uORFs_r.jpg*
 
 • | **tracks:** contains *BED (.bed)*, *wig (.wig)* and *bigWig (.bw)* files for visualizing tracks in a genome browser.
   | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotationNScore.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
@@ -78,18 +75,18 @@ Tools
 miniconda3
 **********
 
-As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
+As this workflow is based on the workflow management system  `**snakemake** <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, Snakemake will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
 
-We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with python3.7.
+We strongly recommend installing `**miniconda3** <https://conda.io/miniconda.html>`_ with **python3.7**.
 
-After downloading the miniconda3 version suiting your linux system, execute the downloaded bash file and follow the instructions given.
+After downloading the **miniconda3** version suiting your linux system, execute the downloaded bash file and follow the instructions given.
 
 snakemake
 *********
 
-.. note:: The uORF-Tools require snakemake (Version >=5.1.3)
+.. note:: The uORF-Tools require snakemake (version >=5.1.3)
 
-The newest version of snakemake can be download via conda using the following command:
+The newest version of snakemake can be downloaded via conda using the following command:
 
 .. code-block:: bash
 
