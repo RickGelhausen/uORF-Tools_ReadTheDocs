@@ -338,6 +338,11 @@ Once the workflow has finished, we can request an automatically generated *repor
 
     snakemake --latency-wait 600 --use-conda -s uORF-Tools/Extended_Snakefile --configfile uORF-Tools/config.yaml --report report.html
 
+The report for this tutorial can also be downloaded via:
+
+.. code-block:: bash
+
+    wget ftp://biftp.informatik.uni-freiburg.de/pub/uORF-Tools/report_tutorial_extended.html
 
 References
 ==========
