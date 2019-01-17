@@ -5,6 +5,7 @@ Example workflow
 ################
 
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from our FTP-Server.
+The dataset is available under the GEO accession number *GSE103719*.
 
 .. note:: Ensure that you have **miniconda3** installed and a conda environment set-up. Please refer to the :ref:`overview <overview:Tools>` for details on the installation.
 If you have not yet activated the conda environment:
