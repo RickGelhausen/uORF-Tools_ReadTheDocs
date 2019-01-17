@@ -204,7 +204,7 @@ Therefore, we created a bash script *torque.sh* in our project folder.
 
     vim torque.sh
 
-.. note:: Please note that all arguments enclosed in <> have to be customized. This script will only work if your cluster uses the TORQUE queuing system.
+..note:: Please note that all arguments enclosed in <> have to be customized. This script will only work if your cluster uses the TORQUE queuing system.
 We proceeded by writing the queuing script:
 
 .. code-block:: bash
