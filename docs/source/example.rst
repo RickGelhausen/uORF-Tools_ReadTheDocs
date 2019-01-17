@@ -21,7 +21,7 @@ First of all, we start by creating the project directory and changing to it.
 
     mkdir tutorial; cd tutorial;
 
-We then download the lastest version of the **uORF-Tools** into the newly created project folder and unpack it.
+We then download the latest version of the **uORF-Tools** into the newly created project folder and unpack it.
 
 .. code-block:: bash
 

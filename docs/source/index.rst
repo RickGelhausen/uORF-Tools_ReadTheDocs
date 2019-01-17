@@ -9,5 +9,5 @@ uORF-Tools
 .. toctree::
    :caption: Examples
 
-   example-workflow
+   example
    extended-workflow

@@ -67,7 +67,7 @@ Requirements
 
 In the following, we describe all the required files and tools needed to run our workflow.
 
-.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow:Example-workflow>`.
+.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example:Example-workflow>`.
 
 Tools
 =====
