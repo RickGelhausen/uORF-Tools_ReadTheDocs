@@ -162,7 +162,7 @@ This file contains the following variables:
     samples: "uORF-Tools/samples.tsv"
     genomeindexpath: ""
     uorfannotationpath: ""
-    alternativestartcodons: "CTG,GTG,TTG"
+    alternativestartcodons: ""
 
 For this tutorial, we can keep the default values for the *config.yaml*. The organism analyzed in this tutorial is *homo sapiens*, therefore we keep the taxonomy at *Eukarya*. The path to *samples.tsv* is set correctly.
 

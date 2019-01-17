@@ -264,7 +264,7 @@ This file contains the following variables:
     samples: "uORF-Tools/samples.tsv"
     genomeindexpath: ""
     uorfannotationpath: ""
-    alternativestartcodons: "CTG,GTG,TTG"
+    alternativestartcodons: ""
 
 For this tutorial, we can keep the default values for the *config.yaml*.
 
