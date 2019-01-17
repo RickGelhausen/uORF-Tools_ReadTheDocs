@@ -69,7 +69,7 @@ Another webpage that provides these files is `Ensembl Genomes <http://www.ensemb
 
 Next, we want to acquire the bam files. The bam files for the tutorial dataset can be downloaded from our FTP-Server:
 
-.. note:: we provide both a .zip and a .tar.gz file. We recommend the .tar.gz file as most linux systems can decompress them via commandline by default.
+.. note:: We provide both a .zip and a .tar.gz file. We recommend the .tar.gz file as most linux systems can decompress them via commandline by default.
 
 .. code-block:: bash
 
@@ -203,7 +203,7 @@ Therefore, we created a bash script *torque.sh* in our project folder.
 
     vim torque.sh
 
-..note:: Please note that all arguments enclosed in <> have to be customized. This script will only work if your cluster uses the TORQUE queuing system.
+.. note:: Please note that all arguments enclosed in <> have to be customized. This script will only work if your cluster uses the TORQUE queuing system.
 We proceeded by writing the queuing script:
 
 .. code-block:: bash
