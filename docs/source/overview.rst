@@ -75,7 +75,7 @@ Tools
 miniconda3
 **********
 
-As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, **Snakemake** will download all necessary dependencies via `conda <https://conda.io/docs/user-guide/install/index.html>`_.
+As this workflow is based on the workflow management system  `snakemake <https://snakemake.readthedocs.io/en/stable/>`_ :cite:`KOE:RAH:2018Snakemake`, **Snakemake** will download all necessary dependencies via `conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_.
 
 We strongly recommend installing `miniconda3 <https://conda.io/miniconda.html>`_ with **python3.7**.
 
