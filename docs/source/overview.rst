@@ -7,6 +7,7 @@ Introduction
 
 uORF-Tools is a workflow and a collection of tools for the analysis of **Upstream Open Reading Frames** (short uORFs). The workflow is based on the workflow management system **snakemake** and handles installation of all dependencies via `bioconda <https://bioconda.github.io/>`_ :cite:`GRU:KOE:2018`, as well as all processings steps. The source code of uORF-Tools is open source and available under the License **GNU General Public License 3**. Installation and basic usage is described below.
 
+.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow:Example workflow>`.
 
 Program flowchart
 =================
@@ -26,7 +27,7 @@ The output is written to a directory structure that corresponds to the workflow 
     :scale: 35%
     :align: center
 
-• | **annotation:** contains the processed user-provided annotation file with genomic features.
+• | **annotation:** contains the user-provided annotation file with genomic features.
   | Contents: *annotation.gtf*
 
 • | **bam:** contains the input *.bam* files.
@@ -67,8 +68,6 @@ Requirements
 
 In the following, we describe all the required files and tools needed to run our workflow.
 
-.. note:: For a detailed step by step tutorial of our workflow on a sample dataset, please refer to our :ref:`example-workflow <example-workflow:Example workflow>`.
-
 Tools
 =====
 
@@ -84,26 +83,33 @@ After downloading the **miniconda3** version suiting your linux system, execute 
 snakemake
 *********
 
-.. note:: The uORF-Tools require snakemake (version >=5.1.3)
+.. note:: The uORF-Tools require snakemake (version >=5.3.1)
 
 The newest version of snakemake can be downloaded via conda using the following command:
 
 .. code-block:: bash
 
-    conda create -c conda-forge -c bioconda -n snakemake snakemake
+    $ conda create -c conda-forge -c bioconda -n snakemake snakemake
 
 This creates a new conda environment called **snakemake** and installs **snakemake** into the environment. The environment can be activated using:
 
 .. code-block:: bash
 
-    source activate snakemake
+    $ conda activate snakemake
 
 and deactivated using:
 
 .. code-block:: bash
 
-    source deactivate
+    $ conda deactivate
 
+
+.. warning:: **Since the latest conda (Version>=4.6.7) and snakemake (Version>=5.4.2) versions are currently (as of Feb. 27th 2019) NOT compatible, the workflow MUST be run with an older conda version. To change your conda version type:**
+.. code-block:: bash
+
+    $ conda install -n base conda=4.5.13
+    $ conda activate
+    $ conda activate snakemake
 
 uORF-Tools
 **********
@@ -115,7 +121,8 @@ The following command creates an example directory and changes into it:
 
 .. code-block:: bash
 
-    mkdir workflow; cd workflow;
+    $ mkdir project
+    $ cd project
 
 Now, download and unpack the latest version of the **uORF-Tools** by entering the following commands:
 
@@ -124,7 +131,7 @@ Now, download and unpack the latest version of the **uORF-Tools** by entering th
     wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
     tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
 
-The **uORF-Tools** are now located in a subdirectory of your workflow directory.
+The **uORF-Tools** are now a subdirectory of your project directory.
 
 Input files
 ===========
@@ -143,12 +150,13 @@ input .bam files
 ****************
 
 These are the input files provided by you (the user).
-Please ensure that you move all input *.bam* files into a folder called **bam**:
+For best performance, reads should be trimmed (to ~ 29 nt RPF length) and aligned to genome using end-to-end mode (no soft-clip). Intron splicing is supported. Some attributes are needed such as NM, NH and MD. For STAR, `--outSAMattributes All` should be set. bam file should be sorted and indexed by samtools." (RiboTISH requirements, see `https://github.com/zhpn1024/ribotish <https://github.com/zhpn1024/ribotish>`_ )
+Please ensure that you move all input *.bam* files into a folder called **bam** (Located in your project folder):
 
 .. code-block:: bash
 
-    mkdir bam
-    mv *.bam bam/
+    $ mkdir bam
+    $ cp *.bam bam/
 
 
 sample sheet and configuration file
@@ -161,17 +169,17 @@ Copy the templates of the sample sheet and the configuration file into the **uOR
 
 .. code-block:: bash
 
-    cp uORF-Tools/templates/samples.tsv uORF-Tools/
-    cp uORF-Tools/templates/config.yaml uORF-Tools/
+    $ cp uORF-Tools/templates/samples.tsv uORF-Tools/
+    $ cp uORF-Tools/templates/config.yaml uORF-Tools/
 
 Customize the **config.yaml** using your preferred editor. It contains the following variables:
 
 • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
-•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the extended workflow)
+•	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the preprocessing workflow)
 •	**samples** The location of the samples sheet created in the previous step.
-•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the extended workflow)
+•	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the preprocessing workflow)
 •	**uorfannotationpath** If the uORF-file was already precomputed, you can specify the path to the files here, in order to avoid recomputation.
-• **alternativestartcodons** Specify a list of alternative start codons.
+• **alternativestartcodons** Specify a comma separated list of alternative start codons.
 
 Edit the sample sheet corresponding to your project. It contains the following variables:
 
@@ -182,17 +190,25 @@ Edit the sample sheet corresponding to your project. It contains the following v
 
 As seen in the *samples.tsv* template:
 
-+--------+-----------+-----------+--------------------+
-| method | condition | replicate | inputFile          |
-+========+===========+===========+====================+
-| RIBO   |  A        | 1         | bam/FP-treat-1.bam |
-+--------+-----------+-----------+--------------------+
-| RIBO   |  A        | 2         | bam/FP-treat-2.bam |
-+--------+-----------+-----------+--------------------+
-| RIBO   |  B        | 1         | bam/FP-ctrl-1.bam  |
-+--------+-----------+-----------+--------------------+
-| RIBO   |  B        | 2         | bam/FP-ctrl-2.bam  |
-+--------+-----------+-----------+--------------------+
++-----------+-----------+-----------+------------------+
+|   method  | condition | replicate | inputFile        |
++===========+===========+===========+==================+
+| RIBO      |  A        | 1         | bam/RIBO-A-1.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  A        | 2         | bam/RIBO-A-2.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  A        | 3         | bam/RIBO-A-3.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  A        | 4         | bam/RIBO-A-4.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 1         | bam/RIBO-B-1.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 2         | bam/RIBO-B-2.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 3         | bam/RIBO-B-3.bam |
++-----------+-----------+-----------+------------------+
+| RIBO      |  B        | 4         | bam/RIBO-B-4.bam |
++-----------+-----------+-----------+------------------+
 
 .. warning:: **Please make sure that you have at-least two replicates for each condition!**
 .. warning:: **Please ensure that you put the treatment before the control alphabetically (e.g. A: Treatment B: Control)**
@@ -210,11 +226,11 @@ Example-workflow
 
 A detailed step by step tutorial is available at: :ref:`example-workflow <example-workflow:Example workflow>`.
 
-Extended-workflow
+Preprocessing-workflow
 =================
 
-We also provide an extended workflow containing a preprocessing step, starting with fastq files.
-A detailed step by step tutorial is available at: :ref:`extended-workflow <extended-workflow:Extended workflow>`.
+We also provide an preprocessing workflow containing a preprocessing step, starting with fastq files.
+A detailed step by step tutorial is available at: :ref:`preprocessing-workflow <preprocessing-workflow:Preprocessing workflow>`.
 
 References
 ==========
