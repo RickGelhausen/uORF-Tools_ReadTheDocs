@@ -7,7 +7,7 @@ Preprocessing workflow
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number *GSE103719*. The retrieval of the data is described in this tutorial.
 
-In this pipeline we use trim_galore for adapter and quality trimming (Prameters: --phred33 -q 20 --length 15 --trim-n --suppress_warn --clip_R1 1), sortmerna for rRNA removal (rRNA fasta files are obtained from `https://github.com/biocore/sortmerna/tree/master/rRNA_databases <https://github.com/biocore/sortmerna/tree/master/rRNA_databases>`_, according to the specified Taxon (i.e. Eukarya, Bacteria, Archea)) and STAR for read alignment (Parameters: --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outFilterMultimapNmax 1 --alignEndsType Extend5pOfRead1).
+In this pipeline we use trim_galore for adapter and quality trimming (Parameters: --phred33 -q 20 --length 15 --trim-n --suppress_warn --clip_R1 1), sortmerna for rRNA removal (rRNA fasta files are obtained from `https://github.com/biocore/sortmerna/tree/master/rRNA_databases <https://github.com/biocore/sortmerna/tree/master/rRNA_databases>`_, according to the specified Taxon (i.e. Eukarya, Bacteria, Archea)) and STAR for read alignment (Parameters: --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outFilterMultimapNmax 1 --alignEndsType Extend5pOfRead1).
 
 .. note:: Ensure that you have **miniconda3** installed and a conda environment set-up. Please refer to the :ref:`overview <overview:Tools>` for details on the installation.
 
