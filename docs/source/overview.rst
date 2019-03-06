@@ -56,6 +56,7 @@ The output is written to a directory structure that corresponds to the workflow 
 
 • **uORF-Tools:** contains the workflow tools.
 
+	- **comprehensive_annotation:** an example annotation.
 	- **envs:** conda environment files (.yaml).
 	- **report:** restructuredText files for the report (.rst).
 	- **rules:** the snakemake rules.
@@ -104,7 +105,7 @@ and deactivated using:
     $ conda deactivate
 
 
-.. warning:: **Since the latest conda (Version>=4.6.7) and snakemake (Version>=5.4.2) versions are currently (as of Feb. 27th 2019) NOT compatible, the workflow MUST be run with an older conda version. To change your conda version type:**
+.. warning:: **Since the latest conda (Version>=4.6.7) and snakemake (Version>=5.4.2) versions are currently (as of March. 6th 2019) NOT compatible, the workflow MUST be run with an older conda version. To change your conda version type:**
 .. code-block:: bash
 
     $ conda install -n base conda=4.5.13
@@ -128,8 +129,8 @@ Now, download and unpack the latest version of the **uORF-Tools** by entering th
 
 .. code-block:: bash
 
-    wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
-    tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
+   $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
+   $ tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
 
 The **uORF-Tools** are now a subdirectory of your project directory.
 

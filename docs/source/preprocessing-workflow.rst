@@ -22,8 +22,8 @@ First of all, we start by creating the project directory and changing to it.
 
 .. code-block:: bash
 
-    $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/2.0.0.tar.gz
-    $ tar -xzf 2.0.0.tar.gz; mv uORF-Tools-2.0.0 uORF-Tools; rm 2.0.0.tar.gz;
+    $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.0.0.tar.gz
+    $ tar -xzf 3.0.0.tar.gz; mv uORF-Tools-3.0.0 uORF-Tools; rm 3.0.0.tar.gz;
 
 Retrieve and prepare input files
 ================================
