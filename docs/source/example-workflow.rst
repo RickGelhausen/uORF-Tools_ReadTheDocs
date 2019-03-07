@@ -70,7 +70,7 @@ Next, we want to acquire the bam files. The bam files for the tutorial dataset c
     $ wget ftp://biftp.informatik.uni-freiburg.de/pub/uORF-Tools/bam.tar.gz; tar -zxvf bam.tar.gz; rm bam.tar.gz;
 
 This will create a bam folder containing all the files necessary to run the workflow.
-If you prefer using your own .bam files, create a bam folder and copy the files into it. Make sure that your reads were trimmed (to ~29bp length) and aligned to the genome using end-to-end alignment. The bam files need to include all SAM attributes and sould be sorted using samtools.
+If you prefer using your own .bam files, create a bam folder and copy the files into it. Make sure that your reads were trimmed (to ~29bp length) and aligned to the genome using end-to-end alignment. The bam files need to include all SAM attributes and should be sorted using samtools.
 
 .. code-block:: bash
 
@@ -118,12 +118,12 @@ Next, we are going to set up the *config.yaml*.
 
 .. code-block:: bash
 
-	  $ cp uORF-Tools/templates/config.yaml uORF-Tools/
+    $ cp uORF-Tools/templates/config.yaml uORF-Tools/
     $ vi uORF-Tools/config.yaml
 
 This file contains the following variables:
 
-• **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea).
+• **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea). (Option for the preprocessing workflow)
 •	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the preprocessing workflow)
 •	**samples** The location of the samples sheet created in the previous step.
 •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the preprocessing workflow)
@@ -199,7 +199,7 @@ We proceeded by writing the queuing script:
     #PBS -j oe
     cd <PATH/ProjectFolder>
     source activate uORF-Tools
-    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/templates/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
 
 We then simply submitted this job to the cluster:
 

@@ -7,12 +7,11 @@ Preprocessing workflow
 The retrieval of input files and running the workflow locally and on a server cluster via a queuing system is demonstrated using an example with data available from SRA via NCBI.
 The dataset is available under the GEO accession number *GSE103719*. The retrieval of the data is described in this tutorial.
 
-In this pipeline we use trim_galore for adapter and quality trimming (Parameters: --phred33 -q 20 --length 15 --trim-n --suppress_warn --clip_R1 1), sortmerna for rRNA removal (rRNA fasta files are obtained from `https://github.com/biocore/sortmerna/tree/master/rRNA_databases <https://github.com/biocore/sortmerna/tree/master/rRNA_databases>`_, according to the specified Taxon (i.e. Eukarya, Bacteria, Archea)) and STAR for read alignment (Parameters: --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outFilterMultimapNmax 1 --alignEndsType Extend5pOfRead1).
-
 .. note:: Ensure that you have **miniconda3** installed and a conda environment set-up. Please refer to the :ref:`overview <overview:Tools>` for details on the installation.
 
 Setup
 =====
+
 First of all, we start by creating the project directory and changing to it.
 
 .. code-block:: bash
@@ -54,9 +53,8 @@ Another webpage that provides these files is `Ensembl Genomes <http://www.ensemb
 Fastq files
 ***********
 In this example, we will use both *RNA-seq* and *RIBO-seq* data. In order to fasten up the tutorial, we download only 2 of the 4 replicates available for each Condition.
-.. note:: Please note that you should always use all available replicates, when analyzing your data.
 
-We show two possible ways to download the data in the following:
+.. note:: Please note that you should always use all available replicates, when analyzing your data.
 
 European Nucleotide Archive (ENA)
 ---------------------------------
@@ -123,7 +121,17 @@ Next, we are going to set up the *config.yaml*.
 .. code-block:: bash
 
     $ cp uORF-Tools/templates/config.yaml uORF-Tools
-    $ vim uORF-Tools/config.yaml
+    $ vi uORF-Tools/config.yaml
+
+
+This file contains the following variables:
+
+    • **taxonomy** Specify the taxonomic group of the used organism in order to ensure the correct removal of reads mapping to ribosomal genes (Eukarya, Bacteria, Archea). (Option for the preprocessing workflow)
+    •	**adapter** Specify the adapter sequence to be used. If not set, *Trim galore* will try to determine it automatically. (Option for the preprocessing workflow)
+    •	**samples** The location of the samples sheet created in the previous step.
+    •	**genomeindexpath** If the STAR genome index was already precomputed, you can specify the path to the files here, in order to avoid recomputation. (Option for the preprocessing workflow)
+    •	**uorfannotationpath** If a uORF-annotation file was already pre-computed, you can specify the path to the file here. Please make sure, that the file has the same format as the uORF_annotation_hg38.csv file provided in the git repo (i.e. same number of columns, same column names)
+    • **alternativestartcodons** Specify a comma separated list of alternative start codons.
 
 Change the config file as follows:
 
@@ -143,6 +151,11 @@ Running the workflow
 ====================
 
 Now that we have all the required files, we can start running the workflow, either locally or in a cluster environment.
+
+Information about processing parameters
+***************************************
+
+In this pipeline we use trim_galore for adapter and quality trimming (Parameters: --phred33 -q 20 --length 15 --trim-n --suppress_warn --clip_R1 1), sortmerna for rRNA removal (rRNA fasta files are obtained from `https://github.com/biocore/sortmerna/tree/master/rRNA_databases <https://github.com/biocore/sortmerna/tree/master/rRNA_databases>`_, according to the specified Taxon (i.e. Eukarya, Bacteria, Archea)) and STAR for read alignment (Parameters: --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outFilterMultimapNmax 1 --alignEndsType Extend5pOfRead1).
 
 Run the workflow locally
 ************************
@@ -190,7 +203,7 @@ We proceeded by writing the queueing script:
     #PBS -j oe
     cd <PATH/ProjectFolder>
     source activate uORF-Tools
-    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Preprocessing_Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
+    snakemake --latency-wait 600 --use-conda -s uORF-Tools/Preprocessing_Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/templates/torque-cluster.yaml --cluster "qsub -N {cluster.jobname} -S /bin/bash -q {cluster.qname} -d <PATH/ProjectFolder> -l {cluster.resources} -o {cluster.logoutputdir} -j oe"
 
 We then simply submitted this job to the cluster:
 
