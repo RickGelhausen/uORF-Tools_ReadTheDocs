@@ -72,13 +72,6 @@ In the following, we describe all the required files and tools needed to run our
 Tools
 =====
 
-.. warning:: **Since the latest conda (Version>=4.6.7) and snakemake (Version>=5.4.2) versions are currently (as of March. 6th 2019) NOT compatible, the workflow MUST be run with an older conda version. To change your conda version type:**
-.. code-block:: bash
-
-    $ conda install -n base conda=4.5.13
-    $ conda activate
-    $ conda activate snakemake
-
 miniconda3
 **********
 
@@ -91,25 +84,30 @@ After downloading the **miniconda3** version suiting your linux system, execute 
 snakemake
 *********
 
-.. note:: The uORF-Tools require snakemake (version >=5.3.1)
+.. note:: The uORF-Tools require snakemake (version==5.4.2)
 
 The newest version of snakemake can be downloaded via conda using the following command:
 
 .. code-block:: bash
 
-    $ conda create -c conda-forge -c bioconda -n snakemake snakemake
+    $ conda create -c conda-forge -c bioconda -n snakemake snakemake==5.4.2
+
+.. warning:: **Due to conflicts between newer conda and snakemake versions, the workflow relies on an older version of conda. Simply update your conda using:**
+.. code-block:: bash
+
+    $ conda install -n base conda=4.5.13
 
 This creates a new conda environment called **snakemake** and installs **snakemake** into the environment. The environment can be activated using:
 
 .. code-block:: bash
 
-    $ conda activate snakemake
+    $ source activate snakemake
 
 and deactivated using:
 
 .. code-block:: bash
 
-    $ conda deactivate
+    $ source deactivate
 
 
 uORF-Tools

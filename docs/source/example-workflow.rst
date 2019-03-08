@@ -216,7 +216,7 @@ Once the workflow has finished, we can request an automatically generated *repor
 
 .. code-block:: bash
 
-    $ snakemake --latency-wait 600 --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --report report.html
+    $ snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --report report.html
 
 References
 ==========
