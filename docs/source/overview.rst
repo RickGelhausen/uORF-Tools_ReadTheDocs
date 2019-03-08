@@ -160,7 +160,7 @@ Please ensure that you move all input *.bam* files into a folder called **bam** 
     $ cp *.bam bam/
 
 
-sample sheet and configuration file
+Sample sheet and configuration file
 ***********************************
 
 In order to run the **uORF-Tools**, you have to provide a sample sheet and a configuration file.

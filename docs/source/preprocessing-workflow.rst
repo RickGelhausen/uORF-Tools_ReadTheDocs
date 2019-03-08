@@ -19,6 +19,8 @@ First of all, we start by creating the project directory and changing to it.
     $ mkdir preprocessing_project
     $ cd preprocessing_project
 
+We then download the latest version of the uORF-Tools into the newly created project folder and unpack it.
+
 .. code-block:: bash
 
     $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.0.0.tar.gz
@@ -81,7 +83,7 @@ Then, we create a fastq folder and move all the *.fastq.gz* files into this fold
     $ mkdir fastq; mv *.fastq.gz fastq/;
 
 
-Configuration file and sample sheet
+Sample sheet and configuration file
 ***********************************
 
 Finally, we will prepare the configuration file (*config.yaml*) and the sample sheet (*samples.tsv*). We start by copying templates for both files from the *uORF-Tools/templates/* into the *uORF-Tools/* folder.
@@ -113,8 +115,6 @@ The template looks as follows:
 +--------+-----------+-----------+---------------------------+
 
 .. warning:: **Please ensure that you do not replace any tabulator symbols with spaces while changing this file.**
-.. note:: For simplicity, we provided a ready-to-use sample file *fastq-samples.tsv*.
-
 
 Next, we are going to set up the *config.yaml*.
 
@@ -212,15 +212,6 @@ We then simply submitted this job to the cluster:
     $ qsub torque.sh
 
 Using any of the presented methods, this will run the workflow on our dataset and create the desired output files.
-
-Report
-******
-
-Once the workflow has finished, we can request an automatically generated *report.html* file using the following command:
-
-.. code-block:: bash
-
-    $ snakemake --use-conda -s uORF-Tools/Preprocessing_Snakefile --configfile uORF-Tools/config.yaml --report report.html
 
 ==========
 

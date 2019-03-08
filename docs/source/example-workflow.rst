@@ -165,13 +165,13 @@ Run Snakemake in a cluster environment
 **************************************
 
 Use the following steps if you are executing the workflow via a queuing system. Edit the configuration file *cluster.yaml*
-according to your queuing system setup and cluster hardware. The following system call shows the usage with Grid Engine:
+according to your queuing system setup and cluster hardware.
 
-Navigate to the project folder on your cluster system. Start the workflow from this folder by running:
+Navigate to the project folder on your cluster system. Start the workflow from this folder by running (The following system call shows the usage with Grid Engine.):
 
 .. code-block:: bash
 
-    $ snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/sge-cluster.yaml
+    $ snakemake --use-conda -s uORF-Tools/Snakefile --configfile uORF-Tools/config.yaml --directory ${PWD} -j 20 --cluster-config uORF-Tools/templates/sge-cluster.yaml
 
 Example: Run Snakemake in a cluster environment
 ***********************************************
