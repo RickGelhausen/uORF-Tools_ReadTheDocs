@@ -11,6 +11,7 @@ The dataset is available under the GEO accession number *GSE103719*.
 
 Setup
 =====
+
 First of all, we start by creating the project directory and changing to it.
 
 .. code-block:: bash

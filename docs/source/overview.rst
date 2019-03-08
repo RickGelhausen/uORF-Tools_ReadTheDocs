@@ -149,7 +149,9 @@ input .bam files
 ****************
 
 These are the input files provided by you (the user).
-"For best performance, reads should be trimmed (to ~ 29 nt RPF length) and aligned to genome using end-to-end mode (no soft-clip). Intron splicing is supported. Some attributes are needed such as NM, NH and MD. For STAR, `--outSAMattributes All` should be set. bam file should be sorted and indexed by samtools." (RiboTISH requirements, see `https://github.com/zhpn1024/ribotish <https://github.com/zhpn1024/ribotish>`_ )
+
+"For best performance, reads should be trimmed (to ~ 29 nt RPF length) and aligned to genome using end-to-end mode (no soft-clip). Intron splicing is supported. Some attributes are needed such as NM, NH and MD. For STAR, `--outSAMattributes All` should be set. bam file should be sorted and indexed by samtools." (RiboTISH requirements, see `https://github.com/zhpn1024/ribotish <https://github.com/zhpn1024/ribotish>`_ ).
+
 Please ensure that you move all input *.bam* files into a folder called **bam** (Located in your project folder):
 
 .. code-block:: bash
