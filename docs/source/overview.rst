@@ -45,7 +45,7 @@ The output is written to a directory structure that corresponds to the workflow 
   | Contents: *<method-condition-replicate>.bam.bai*, *RIBO/<condition-replicate>.bam.para.py*
 
 • | **ribotish:** contains the result files of ribotish.
-  | Contents: *<condition-replicate>-newORFs.tsv*, *<condition-replicate>-newORFs.tsv_all.txt*, *<condition-replicate>-qual.txt*, *<condition-replicate>-newORFs.t*
+  | Contents: *<condition-replicate>-newORFs.tsv*, *<condition-replicate>-newORFs.tsv_all.txt*, *<condition-replicate>-qual.txt*, *<condition-replicate>-qual.pdf*
 
 • | **tracks:** contains *BED (.bed)*, *wig (.wig)* and *bigWig (.bw)* files for visualizing tracks in a genome browser.
   | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotationNScore.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
@@ -125,8 +125,8 @@ Now, download and unpack the latest version of the **uORF-Tools** by entering th
 
 .. code-block:: bash
 
-   $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.0.0.tar.gz
-   $ tar -xzf 3.0.0.tar.gz; mv uORF-Tools-3.0.0 uORF-Tools; rm 3.0.0.tar.gz;
+   $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.1.1.tar.gz
+   $ tar -xzf 3.1.1.tar.gz; mv uORF-Tools-3.1.1 uORF-Tools; rm 3.1.1.tar.gz;
 
 The **uORF-Tools** are now a subdirectory of your project directory.
 
