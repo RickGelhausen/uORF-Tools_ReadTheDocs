@@ -44,6 +44,9 @@ The output is written to a directory structure that corresponds to the workflow 
 	- **RIBO:** contains soft links to the *.bam* and *.bam.bai* files for RIBO and corresponding parameter files (*.para.py*).
   | Contents: *<method-condition-replicate>.bam.bai*, *RIBO/<condition-replicate>.bam.para.py*
 
+• | **ribotish:** contains the result files of ribotish.
+  | Contents: *<condition-replicate>-newORFs.tsv*, *<condition-replicate>-newORFs.tsv_all.txt*, *<condition-replicate>-qual.txt*, *<condition-replicate>-newORFs.t*
+
 • | **tracks:** contains *BED (.bed)*, *wig (.wig)* and *bigWig (.bw)* files for visualizing tracks in a genome browser.
   | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotationNScore.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
 
@@ -84,30 +87,25 @@ After downloading the **miniconda3** version suiting your linux system, execute 
 snakemake
 *********
 
-.. note:: The uORF-Tools require snakemake (version==5.4.2)
+.. note:: The uORF-Tools require snakemake (version==5.4.5)
 
 The newest version of snakemake can be downloaded via conda using the following command:
 
 .. code-block:: bash
 
-    $ conda create -c conda-forge -c bioconda -n snakemake snakemake==5.4.2
-
-.. warning:: **Due to conflicts between newer conda and snakemake versions, the workflow relies on an older version of conda. Simply update your conda using:**
-.. code-block:: bash
-
-    $ conda install -n base conda=4.5.13
+    $ conda create -c conda-forge -c bioconda -n snakemake snakemake==5.4.5
 
 This creates a new conda environment called **snakemake** and installs **snakemake** into the environment. The environment can be activated using:
 
 .. code-block:: bash
 
-    $ source activate snakemake
+    $ conda activate snakemake
 
 and deactivated using:
 
 .. code-block:: bash
 
-    $ source deactivate
+    $ conda deactivate
 
 
 uORF-Tools
