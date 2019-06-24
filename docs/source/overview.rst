@@ -48,14 +48,14 @@ The output is written to a directory structure that corresponds to the workflow 
   | Contents: *<condition-replicate>-newORFs.tsv*, *<condition-replicate>-newORFs.tsv_all.txt*, *<condition-replicate>-qual.txt*, *<condition-replicate>-qual.pdf*
 
 • | **tracks:** contains *BED (.bed)*, *wig (.wig)* and *bigWig (.bw)* files for visualizing tracks in a genome browser.
-  | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotationNScore.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
+  | Contents: *annotation.bb*, *annotation.bed*, *annotation.bed6*, *annotation-woGenes.gtf*, *<method-condition-replicate>.bw*, *<method-condition-replicate>.wig*
 
 • | **uORFs:** contains the main output of the workflow.
 
 	- **uORFs_regulation.tsv:** table summarizing the predicted uORFs with their regulation on the main ORF.
 	- **merged_uORFs.bed:** genome browser track with predicted uORFs.
 
-  | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*, *ribo_norm_CDS_reads.csv*, *ribo_norm_uORFs_reads.csv*, *ribo_raw_CDS_reads.csv*, *ribo_raw_uORFs_reads.csv*, *sfactors_lprot.csv*, *uORF_regulation.tsv*
+  | Contents: *longest_protein_coding_transcripts.gtf*, *merged_uORFs.bed*, *merged_uORFs.csv*, *ribo_norm_CDS_reads.csv*, *ribo_norm_uORFs_reads.csv*, *ribo_raw_CDS_reads.csv*, *ribo_raw_uORFs_reads.csv*, *sfactors_lprot.csv*, *uORFs_regulation.tsv*
 
 • **uORF-Tools:** contains the workflow tools.
 
@@ -95,44 +95,41 @@ This table contains explanations for each of the input/ output files.
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
 | <condition-replicate>-newORFs.tsv_all.txt | RiboTISH output file containing newly discovered ORFs (all)                                  |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| <condition-replicate>-qual.txt            |                                                                                              |
+| <condition-replicate>-qual.txt            | RiboTISH quality control report text file                                                    |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| <condition-replicate>-qual.pdf            |                                                                                              |
+| <condition-replicate>-qual.pdf            | RiboTISH quality control report file with illustrations                                      |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| annotation.bb                             |                                                                                              |
+| annotation.bb                             | input annotation in bigbed format for genome browser visualization                           |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| annotation.bed                            |                                                                                              |
+| annotation.bed                            | input annotation in bed format for genome browser visualization                              |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| annotation.bed6                           |                                                                                              |
+| annotation.bed6                           | input annotation in bed6 format for genome browser visualization                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| annotationNScore.bed6                     |                                                                                              |
+| annotation-woGenes.gtf                    | input annotation filtered exclusively for gene features                                      |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| annotation-woGenes.gtf                    |                                                                                              |
+| <method-condition-replicate>.bw           | BigWig files for visualizing data in a genome Browser                                        |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| <method-condition-replicate>.bw           |                                                                                              |
+| <method-condition-replicate>.wig          | wig files for visualizing data in a genome Browser                                           |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| <method-condition-replicate>.wig          |                                                                                              |
+| uORFs_regulation.tsv                      | final output table including all uORFs and their mORF                                        |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| uORFs_regulation.tsv                      |                                                                                              |
+| merged_uORFs.bed                          | bed file containing potential ORFs for genome browser visualization                          |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| merged_uORFs.bed                          |                                                                                              |
+| merged_uORFs.csv                          | list of potential ORFs with coordinates and mORF annotation                                  |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| merged_uORFs.csv                          |                                                                                              |
+| longest_protein_coding_transcripts.gtf    | input annotation filtered for longest splice variant for each locus                          |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| longest_protein_coding_transcripts.gtf    |                                                                                              |
+| ribo_raw_CDS_reads.csv                    | read counts for annotated ORFs                                                               |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ribo_norm_CDS_reads.csv                   |                                                                                              |
+| ribo_raw_uORFs_reads.csv                  | read counts for potential ORFs                                                               |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ribo_norm_uORFs_reads.csv                 |                                                                                              |
+| ribo_norm_CDS_reads.csv                   | deseq2 normalized read counts for annotated ORFs                                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ribo_raw_CDS_reads.csv                    |                                                                                              |
+| ribo_norm_uORFs_reads.csv                 | deseq2 normalized read counts for potential ORFs                                             |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ribo_raw_uORFs_reads.csv                  |                                                                                              |
+| sfactors_lprot.csv                        | deseq2 size factors for protein coding transcripts                                           |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
-| sfactors_lprot.csv                        |                                                                                              |
-+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| uORF_regulation.tsv                       |                                                                                              |
-+-------------------------------------------+----------------------------------------------------------------------------------------------+
+
 
 Tool Parameters
 ===============
