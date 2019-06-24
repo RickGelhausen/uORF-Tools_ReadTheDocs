@@ -23,8 +23,8 @@ We then download the latest version of the uORF-Tools into the newly created pro
 
 .. code-block:: bash
 
-    $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.1.1.tar.gz
-    $ tar -xzf 3.1.1.tar.gz; mv uORF-Tools-3.1.1 uORF-Tools; rm 3.1.1.tar.gz;
+    $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.1.2.tar.gz
+    $ tar -xzf 3.1.2.tar.gz; mv uORF-Tools-3.1.2 uORF-Tools; rm 3.1.2.tar.gz;
 
 Retrieve and prepare input files
 ================================

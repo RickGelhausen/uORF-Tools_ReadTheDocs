@@ -67,10 +67,10 @@ The output is written to a directory structure that corresponds to the workflow 
 	- **scripts:** scripts used by the snakemake workflow.
 	- **templates:** templates for the *config.yaml* and the *samples.tsv*.
 
-Output Files
-============
+Input/Output Files
+==================
 
-This table contains explanations for each of the input/ output files.
+This table contains explanations for each of the input/output files.
 
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
 | File name                                 | Description                                                                                  |
@@ -130,6 +130,16 @@ This table contains explanations for each of the input/ output files.
 | sfactors_lprot.csv                        | deseq2 size factors for protein coding transcripts                                           |
 +-------------------------------------------+----------------------------------------------------------------------------------------------+
 
+uORFs_regulation.tsv
+********************
+Description for the columns present in the final output file:
+
+• transcript_id: transcript id of the main open reading frame (mORF)
+• uORF_id: id of the potential Upstream open reading frame (uORF), derived from mORF id
+• Ratio: list of columns, one for each sample, with the ratio of read counts for the mORF and the uORF
+• Standard deviation of read count ratios for condition 1 (treatment)
+• Standard deviation of read count ratios for condition 2 (control)
+• binary logarithm fold change of the ratio of the relative uORF activities of treatment vs control
 
 Tool Parameters
 ===============
