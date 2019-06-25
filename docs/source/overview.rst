@@ -137,8 +137,7 @@ Description for the columns present in the final output file:
 • transcript_id: transcript id of the main open reading frame (mORF)
 • uORF_id: id of the potential Upstream open reading frame (uORF), derived from mORF id
 • Ratio: list of columns, one for each sample, with the ratio of read counts for the mORF and the uORF
-• Standard deviation of read count ratios for condition 1 (treatment)
-• Standard deviation of read count ratios for condition 2 (control)
+• Standard deviation of changes of the ratio of the relative uORF activities of treatment vs control
 • binary logarithm fold change of the ratio of the relative uORF activities of treatment vs control
 
 Tool Parameters
