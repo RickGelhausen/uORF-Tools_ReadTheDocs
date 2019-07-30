@@ -220,8 +220,8 @@ Now, download and unpack the latest version of the **uORF-Tools** by entering th
 
 .. code-block:: bash
 
-   $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.2.0.tar.gz
-   $ tar -xzf 3.2.0.tar.gz; mv uORF-Tools-3.2.0 uORF-Tools; rm 3.2.0.tar.gz;
+   $ wget https://github.com/Biochemistry1-FFM/uORF-Tools/archive/3.2.1.tar.gz
+   $ tar -xzf 3.2.1.tar.gz; mv uORF-Tools-3.2.1 uORF-Tools; rm 3.2.1.tar.gz;
 
 The **uORF-Tools** are now a subdirectory of your project directory.
 
